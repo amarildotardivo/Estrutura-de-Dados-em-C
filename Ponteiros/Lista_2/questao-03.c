@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int** ordenar(int n, int *vetorInteiro){
+int** ordenar(int n, int* vetorInteiro){
     int *w, *aux;
 
     w = (int *) malloc(n * sizeof (int));

@@ -11,7 +11,10 @@ int main (){
 
     printf("D - Endereco de num e: %p e endereco de ptrNum e: %p \n", &num, &ptrNum);
 
-    *ptrNum = *ptrNum + 1;
+    //*ptrNum = *ptrNum + 1;
+
+    (*ptrNum)++;
+
     printf("E - Valor de num incrementado por ptrNum: %d \n", *ptrNum);
 
     printf("F - Novo valor de num e: %d", num);
