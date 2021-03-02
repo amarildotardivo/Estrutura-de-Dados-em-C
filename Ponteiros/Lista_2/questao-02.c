@@ -30,7 +30,7 @@ int main (){
     }
     printf("\n\n");
     
-    w = somatorio(n, v);
+    w = somatorio(n, &v);
 
     printf("Ponteiro W:\n");
     for(int i = 0; i < n; i++){
