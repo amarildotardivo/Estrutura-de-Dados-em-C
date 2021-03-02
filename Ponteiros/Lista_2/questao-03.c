@@ -19,7 +19,7 @@ int** ordenar(int n, int* vetorInteiro){
     
     printf("O menor e: %d\n", menor);
     printf("O maior e: %d\n", maior);
-    
+
    /* for(int i = 0; i < n; i++)
     {
         for(int j = 0; j < n; j++)
@@ -39,7 +39,7 @@ int** ordenar(int n, int* vetorInteiro){
 
 int main(){
     int n = 4;
-    int *vetorInteiro[4] = {0, 3, 2, 1};
+    int *vetorInteiro[4] = {4, 3, 2, 1};
     int **w;
     
     printf("VetorInteiro (valores):\n");
