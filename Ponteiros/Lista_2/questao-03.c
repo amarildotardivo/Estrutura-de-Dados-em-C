@@ -78,6 +78,7 @@ int main(){
     printf("\n\n");
 
     free(w);
+    w = NULL;
 
     return 0;
     
