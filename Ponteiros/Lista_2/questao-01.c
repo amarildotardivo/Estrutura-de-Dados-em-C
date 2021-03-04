@@ -1,42 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int** trocarValores(int* var_inteira1, int* var_inteira2){
-    int **ponteiro, *aux;
-    ponteiro = (int *) malloc(2 * sizeof(int*));
+void trocarValores(int* var_inteira1, int* var_inteira2){
+    int aux;
 
-    ponteiro[0] = var_inteira1;
-    ponteiro[1] = var_inteira2;
-
-    var_inteira1 = *ponteiro[1];
-    var_inteira2 = *ponteiro[0];
-    
-    /*aux = ponteiro[0];
-    ponteiro[0] = ponteiro[1];
-    ponteiro[1] = aux;*/
-
-    printf("Dentro da funcao\n");
-    printf("Variavel 1: %d\n", var_inteira1);
-    printf("Variavel 2: %d\n\n", var_inteira2);
-
-    return ponteiro;
+    aux = *var_inteira1;
+    *var_inteira1 = *var_inteira2;
+    *var_inteira2 = aux;
 
 }
 
 int main(){
-    int v1 = 1, v2 = 2, **p;
+    int v1 = 1, v2 = 2;
     
-    p = trocarValores(&v1, &v2);
-
+    printf("ANTES DA TROCA:\n");
     printf("Variavel 1: %d\n", v1);
     printf("Variavel 2: %d\n\n", v2);
 
-    for(int i = 0; i < 2; i++){
-        printf("valor %d: %d\n", i + 1, *p[i]);
-    }
+    trocarValores(&v1, &v2);
 
-    free(p);
-    p = NULL;
+    printf("DEPOIS DA TROCA:\n");
+    printf("Variavel 1: %d\n", v1);
+    printf("Variavel 2: %d\n\n", v2);
 
     return 0;
 }
