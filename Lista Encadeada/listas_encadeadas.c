@@ -13,17 +13,17 @@ int main(){
 
 
     while(opcao != 4){
-        printf("\nEscolha uma opcao:\n\n");
-        printf("1) - Inclusao de elemento no inicio da lista\n");
-        printf("2) - Exclusao de elemento do inicio da lista\n");
-        printf("3) - Impressao dos elementos da lista\n");
-        printf("4) - Finalizacao do programa\n");
+        printf("\n -------------- MENU -------------- \n\n");
+        printf(" 1) - Inclusao de elemento no inicio da lista\n");
+        printf(" 2) - Exclusao de elemento do inicio da lista\n");
+        printf(" 3) - Impressao dos elementos da lista\n");
+        printf(" 4) - Finalizacao do programa\n\n Escolha uma opcao: ");
         scanf("%d", &opcao);
 
         switch (opcao){
 
             case 1:
-                printf("Digite o elemento a ser incluido na lista: ");
+                printf("\n    Digite o elemento a ser incluido na lista: ");
                 scanf("%d", &elemento);
 
                 novo = (tipo_no*) malloc(sizeof(tipo_no));
@@ -38,9 +38,10 @@ int main(){
                 if(inicio != NULL){
                     auxiliar = inicio;
                     inicio = auxiliar -> proximo;
+                    printf("\n    O numero excluido foi: [%d]\n\n", auxiliar -> dado);
                     free(auxiliar);
                 }else{
-                    printf("Nao e possivel excluir, pois a lista esta vazia!");
+                    printf("\n    Nao e possivel excluir, pois a lista esta vazia!\n\n");
                 }
 
                 break;
@@ -48,10 +49,19 @@ int main(){
             case 3:
                 atual = inicio;
 
-                while (atual != NULL)
-                {
-                    printf("%d ", atual -> dado);
-                    atual = atual -> proximo;
+                if(inicio != NULL){
+
+                    printf("\n    Lista: ");
+                    while (atual != NULL)
+                    {
+                        printf("[%d] ", atual -> dado);
+                        atual = atual -> proximo;
+                    }
+                    printf("\n\n");
+
+                }else{
+
+                    printf("\n    Nao e possivel imprimir, pois a lista esta vazia!\n\n");
                 }
                 
                 break;
@@ -63,12 +73,12 @@ int main(){
                     inicio = auxiliar -> proximo;
                     free(auxiliar);
                 }
-                printf("Opcao 4 selecionada, programa finalizado!!!");
+                printf("\n    Programa finalizado, ponteiros liberados!!!\n\n");
                 
                 return 0;
 
             default:
-                printf("\nDigite uma opcao valida!\n");
+                printf("\n    Digite uma opcao valida!\n");
                 break;
         }
     }
