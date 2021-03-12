@@ -67,7 +67,11 @@ int main(){
                 break;
             
             case 4:
-                
+                if(inicio == NULL){
+                    printf("\n    Programa finalizado, nao existem ponteiros a serem liberados!!!\n\n");
+                    return 0;
+                }
+
                 while (inicio != NULL){
                     auxiliar = inicio;
                     inicio = auxiliar -> proximo;
