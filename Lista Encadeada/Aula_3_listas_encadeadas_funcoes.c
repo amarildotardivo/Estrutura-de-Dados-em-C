@@ -7,7 +7,7 @@ typedef struct no
     struct no *proximo;
 } tipo_no;
 
-int* incluirElemento(tipo_no* inicio, tipo_no* novo){
+tipo_no* incluirElemento(tipo_no* inicio, tipo_no* novo){
     int elemento;
 
     printf("\n    Digite o elemento a ser incluido na lista: ");
@@ -21,7 +21,7 @@ int* incluirElemento(tipo_no* inicio, tipo_no* novo){
     return inicio;
 }
 
-int* excluirElemento(tipo_no* inicio, tipo_no* auxiliar){
+tipo_no* excluirElemento(tipo_no* inicio, tipo_no* auxiliar){
 
     if(inicio != NULL){
         auxiliar = inicio;
