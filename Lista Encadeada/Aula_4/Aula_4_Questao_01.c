@@ -11,7 +11,7 @@ tipo_no* incluirElementoInicio(tipo_no* inicio){
     tipo_no *novo;
 
     printf("\n    Digite o elemento a ser incluido no inicio da lista: ");
-    scanf("%d", elemento);
+    scanf("%d", &elemento);
 
     novo = (tipo_no*) malloc(sizeof(tipo_no));
     novo -> dado = elemento;
@@ -21,10 +21,24 @@ tipo_no* incluirElementoInicio(tipo_no* inicio){
     return inicio;
 }
 
-void imprimirLista(inicio){
+tipo_no* incluirElementoFinal(inicio){
+    
+}
 
-    while( inicio != NULL){
-        printf("");
+void imprimirLista(inicio){
+    tipo_no *atual;
+    atual = inicio;
+
+    if(atual != NULL){
+        printf("\n    Lista: ");
+        while( atual != NULL){
+            printf("[%d] ", atual -> dado);
+            atual = atual -> proximo;
+        }
+        printf("\n\n");
+
+    }else{
+        printf("\n    Nao e possivel imprimir, pois a lista nao existe!\n\n");
     }
 }
 
@@ -51,15 +65,23 @@ int main(){
         scanf("%d", &opcao);
 
         switch(opcao){
-            case1:
-                incluirElementoInicio(inicio);
+            case 1:
+                inicio = incluirElementoInicio(inicio);
+                break;
+
+            case 2:
+                inicio = incluirElementoFinal(inicio);
                 break;
 
             case 5:
                 imprimirLista(inicio);
                 break;
+
+            case 7:
+                
+                return 0;
             default:
-                printf("Escolha uma opcao válida!");
+                printf("\n    Digite uma opcao valida!\n");
                 break;
         }
     }
