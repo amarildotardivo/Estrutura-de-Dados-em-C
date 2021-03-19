@@ -65,7 +65,28 @@ tipo_no* excluirElementoInicio(tipo_no* inicio){
 
 // 4) - Excluir elemento no final da lista
 tipo_no* excluirElementoFinal(tipo_no* inicio){
+    tipo_no *atual = inicio, *anterior = NULL;
 
+    if(inicio != NULL){
+        while (atual -> proximo != NULL){
+            anterior = atual;
+            atual = atual -> proximo;
+        }
+        printf("\n    O numero excluido foi: [%d]\n\n", atual -> dado);
+        free(atual);
+
+        if(anterior == NULL){
+            inicio = NULL;
+            
+        }else{
+            anterior -> proximo = NULL;     
+        }
+        
+    }else{
+        printf("\n    Nao e possivel excluir o elemento, pois a lista nao existe!\n\n");
+    }
+
+    return inicio;
 }
 
 // 5) - Imprimir lista
