@@ -12,7 +12,7 @@ tipo_no* incluirNome(tipo_no* inicio){
     tipo_no *novo;
     
     printf("\n    Digite o nome a ser incluido no inicio da lista: ");
-    scanf("%[\n^s]", &nome);
+    scanf("%[\n^s]", nome);
 
     novo = (tipo_no*) malloc(sizeof(tipo_no));
     novo -> nome = nome;
