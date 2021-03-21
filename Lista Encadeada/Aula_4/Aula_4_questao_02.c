@@ -14,6 +14,7 @@ tipo_no* incluirNome(tipo_no* inicio){
     tipo_no *novo, *atual = inicio, *anterior = NULL;
     
     printf("\n    Digite o nome a ser incluido na lista: ");
+    // LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
     fflush(stdin);
     scanf("%[^\n]s", nome);
     
@@ -22,7 +23,7 @@ tipo_no* incluirNome(tipo_no* inicio){
 
     //VERIFICA SE EXISTE ALGUM NOME NA LISTA
     if( inicio != NULL ){
-        //CONDIÇÃO QUE INFORMA QUE A LISTA ACABOU
+        //CONDIÇÃO QUE INFORMA QUE A LISTA ACABOU E ANDA PELA LISTA
         while( atual != NULL ){
             //VERIFICA SE O NOVO NOME É "MENOR" QUE O NOME ATUAL DA LISTA
             if( (strcmp(novo -> nome, atual -> nome) < 0) ){
@@ -44,7 +45,7 @@ tipo_no* incluirNome(tipo_no* inicio){
                     novo -> proximo = NULL;
 
             }
-            
+            // ANDA PELA LISTA
             anterior = atual;
             atual = atual -> proximo;
         }
@@ -66,33 +67,36 @@ tipo_no* excluirNome(tipo_no* inicio){
     tipo_no *atual = inicio, *anterior = NULL;
 
     printf("\n    Digite o nome a ser excluido: ");
+    // LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
     fflush(stdin);
     scanf("%[^\n]s", nome);
 
     if(inicio != NULL){
-        
+        //ANDA PELA LISTA ENQUANTO NÃO ENCONTRA O FINAL DA LISTA OU O NOME DIGITADO PELO USUÁRIO
         while(atual != NULL && strcmp(nome, atual -> nome) != 0){
             anterior = atual;
             atual = atual -> proximo;
         }
-
+        // VERIFICA SE O NOME FOI ENCONTRADO PARA EXCLUIR
         if(atual != NULL){
-
+            // EXCLUI O PRIMEIRO NOME
             if(anterior == NULL){
                 inicio = atual -> proximo;
-
+            
+            // EXCLUI O NOME DO MEIO DA LISTA OU DO FINAL, POIS ATUAL -> PROXIMO == NULL
             }else{
                 anterior -> proximo = atual -> proximo;
 
             }
-
+            // INFORMA AO USUÁRIO O NOME EXCLUIDO E LIBERA DA MEMÓRIA
             printf("\n        O nome excluido foi: [%s]\n\n", atual -> nome);
             free(atual);
 
+        // A LISTA EXISTE, PORÉM O NOME NÃO FOI ENCONTRADO
         }else{
             printf("\n        O nome nao foi encontrado para ser excluido!\n\n");
         }
-
+    //INFORMA AO USUÁRIO QUE NÃO EXISTE LISTA DE NOMES PARA EXCLUIR UM POSSIVEL NOME
     }else{
         printf("\n        Nao e possivel excluir nome, lista nao existe!\n");
     }
@@ -107,6 +111,7 @@ void buscarNome(tipo_no* inicio){
     tipo_no *atual = inicio;
 
     printf("\n    Digite o nome a ser buscado: ");
+    // LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
     fflush(stdin);
     scanf("%[^\n]s", nome);
 
