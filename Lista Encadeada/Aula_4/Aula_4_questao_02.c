@@ -23,16 +23,19 @@ tipo_no* incluirNome(tipo_no* inicio){
 
     //VERIFICA SE EXISTE ALGUM NOME NA LISTA
     if( inicio != NULL ){
+
         //CONDIÇÃO QUE INFORMA QUE A LISTA ACABOU E ANDA PELA LISTA
         while( atual != NULL ){
+        
             //VERIFICA SE O NOVO NOME É "MENOR" QUE O NOME ATUAL DA LISTA
             if( (strcmp(novo -> nome, atual -> nome) < 0) ){
+        
                 //INSERI O NOME NO "MEIO"
                 if(anterior != NULL){
                     
                     anterior -> proximo = novo;
                     novo -> proximo = atual;
-                //INSERI O NOME NA PRIMEIRA POSIÇÃO
+                //INSERI O NOME NA PRIMEIRA POSIÇÃO QUANDO A LISTA EXISTE
                 }else{
                     
                     novo -> proximo = inicio;
