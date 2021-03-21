@@ -13,12 +13,11 @@ tipo_no* incluirNome(tipo_no* inicio){
     char nome[20];
     tipo_no *novo;
     
-
     printf("\n    Digite o nome a ser incluido na lista: ");
     scanf("%s", nome);
     
     novo = (tipo_no*) malloc(sizeof(tipo_no));
-    strcpy(novo -> nome, nome);
+    strcpy(novo -> nome, nome);    
     novo -> proximo = inicio;
     inicio = novo;
 
@@ -188,7 +187,7 @@ int main(){
             }else{
                 printf("\n    Programa Finalizado, nao existiam nomes para excluir!!!\n\n");
             }
-            
+
             return 0;
 
         default:
