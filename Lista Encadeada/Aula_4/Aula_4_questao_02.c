@@ -8,18 +8,52 @@ typedef struct no{
 }tipo_no;
 
 // 1) - Incluir Nome
-// OBS - FALTA COLOCAR EM ORDEM ALFABETICA
 tipo_no* incluirNome(tipo_no* inicio){
     char nome[20];
-    tipo_no *novo;
+    int posicao = 0;
+    tipo_no *novo, *atual = inicio, *anterior = NULL;
     
     printf("\n    Digite o nome a ser incluido na lista: ");
-    scanf("%s", nome);
+    fflush(stdin);
+    scanf("%[^\n]s", nome);
     
     novo = (tipo_no*) malloc(sizeof(tipo_no));
-    strcpy(novo -> nome, nome);    
-    novo -> proximo = inicio;
-    inicio = novo;
+    strcpy(novo -> nome, nome);
+
+    //VERIFICA SE EXISTE ALGUM NOME NA LISTA
+    if( inicio != NULL ){
+        //CONDIÇÃO QUE INFORMA QUE A LISTA ACABOU
+        while( atual != NULL ){
+            //VERIFICA SE O NOVO NOME É "MENOR" QUE O NOME ATUAL DA LISTA
+            if( (strcmp(novo -> nome, atual -> nome) < 0) ){
+                //INSERI O NOME NO "MEIO"
+                if(anterior != NULL){
+                    
+                    anterior -> proximo = novo;
+                    novo -> proximo = atual;
+                //INSERI O NOME NA PRIMEIRA POSIÇÃO
+                }else{
+                    
+                    novo -> proximo = inicio;
+                    inicio = novo;
+                }
+            // INSERI O NOME NA ÚLTIMA POSIÇÃO
+            }else if(atual -> proximo == NULL){
+                    
+                    atual -> proximo = novo;
+                    novo -> proximo = NULL;
+
+            }
+            
+            anterior = atual;
+            atual = atual -> proximo;
+        }
+    //INSERI O NOME NA PRIMEIRA POSIÇÃO
+    }else{
+        novo -> proximo = inicio;
+        inicio = novo;
+    }
+
 
     printf("\n        O nome [%s] foi incluido com sucesso!\n\n", novo -> nome);
     
@@ -32,7 +66,8 @@ tipo_no* excluirNome(tipo_no* inicio){
     tipo_no *atual = inicio, *anterior = NULL;
 
     printf("\n    Digite o nome a ser excluido: ");
-    scanf("%s", nome);
+    fflush(stdin);
+    scanf("%[^\n]s", nome);
 
     if(inicio != NULL){
         
@@ -55,7 +90,7 @@ tipo_no* excluirNome(tipo_no* inicio){
             free(atual);
 
         }else{
-            printf("\n        O nome nao foi encontrado para ser excluído!\n\n");
+            printf("\n        O nome nao foi encontrado para ser excluido!\n\n");
         }
 
     }else{
@@ -72,7 +107,8 @@ void buscarNome(tipo_no* inicio){
     tipo_no *atual = inicio;
 
     printf("\n    Digite o nome a ser buscado: ");
-    scanf("%s", nome);
+    fflush(stdin);
+    scanf("%[^\n]s", nome);
 
     if(inicio != NULL){
 
