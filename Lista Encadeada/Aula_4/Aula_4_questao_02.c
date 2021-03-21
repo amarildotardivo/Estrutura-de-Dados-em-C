@@ -27,7 +27,6 @@ tipo_no* incluirNome(tipo_no* inicio){
 }
 
 // 2) - Excluir Nome
-// OBS - QUANDO O NOME NÃO EXISTE O PROGRAMA CRASHA
 tipo_no* excluirNome(tipo_no* inicio){
     char nome[20]; 
     tipo_no *atual = inicio, *anterior = NULL;
@@ -37,21 +36,27 @@ tipo_no* excluirNome(tipo_no* inicio){
 
     if(inicio != NULL){
         
-        while(strcmp(nome, atual -> nome) != 0){
+        while(atual != NULL && strcmp(nome, atual -> nome) != 0){
             anterior = atual;
             atual = atual -> proximo;
         }
-        printf("\n        O nome excluido foi: [%s]\n\n", atual -> nome);
 
-        if(anterior == NULL){
-            inicio = atual -> proximo;
+        if(atual != NULL){
+
+            if(anterior == NULL){
+                inicio = atual -> proximo;
+
+            }else{
+                anterior -> proximo = atual -> proximo;
+
+            }
+
+            printf("\n        O nome excluido foi: [%s]\n\n", atual -> nome);
+            free(atual);
 
         }else{
-            anterior -> proximo = atual -> proximo;
-
+            printf("\n        O nome nao foi encontrado para ser excluído!\n\n");
         }
-
-        free(atual);
 
     }else{
         printf("\n        Nao e possivel excluir nome, lista nao existe!\n");
@@ -61,7 +66,6 @@ tipo_no* excluirNome(tipo_no* inicio){
 }
 
 // 3) - Buscar Nome
-// OBS - QUANDO O NOME NÃO EXISTE O PROGRAMA CRASHA
 void buscarNome(tipo_no* inicio){
     char nome[20]; 
     int posicao = 0;
@@ -72,12 +76,17 @@ void buscarNome(tipo_no* inicio){
 
     if(inicio != NULL){
 
-        while(strcmp(nome, atual -> nome) != 0){
+        while(atual != NULL && strcmp(nome, atual -> nome) != 0){
             atual = atual -> proximo;
             posicao++;
         }
 
-        printf("\n        Posicao: %d Nome: %s ", posicao + 1, atual -> nome);
+        if(atual != NULL){
+            printf("\n        Posicao: %d Nome: %s ", posicao + 1, atual -> nome);
+
+        }else{
+            printf("\n        O nome nao existe na lista!\n\n");
+        }
 
     }else{
         printf("\n        Lista nao existe, impossivel imprimir! ");
