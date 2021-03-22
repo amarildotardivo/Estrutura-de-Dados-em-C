@@ -3,14 +3,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define tam_nome 50
+
 typedef struct no{
-    char nome[20];
+    char nome[50];
     struct no *proximo;
 }tipo_no;
 
 // 1) - Incluir Nome
 tipo_no* incluirNome(tipo_no* inicio){
-    char nome[20];
+    char nome[tam_nome];
     int posicao = 0;
     tipo_no *novo, *atual = inicio, *anterior = NULL;
     
@@ -77,7 +79,7 @@ tipo_no* incluirNome(tipo_no* inicio){
 
 // 2) - Excluir Nome
 tipo_no* excluirNome(tipo_no* inicio){
-    char nome[20]; 
+    char nome[tam_nome]; 
     tipo_no *atual = inicio, *anterior = NULL;
 
     printf("\n    Digite o nome a ser excluido: ");
@@ -120,7 +122,7 @@ tipo_no* excluirNome(tipo_no* inicio){
 
 // 3) - Buscar Nome
 void buscarNome(tipo_no* inicio){
-    char nome[20]; 
+    char nome[tam_nome]; 
     int posicao = 0;
     tipo_no *atual = inicio;
 
