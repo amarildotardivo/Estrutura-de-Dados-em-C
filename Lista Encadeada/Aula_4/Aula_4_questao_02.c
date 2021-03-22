@@ -184,6 +184,8 @@ tipo_no* excluirTodosNomes(tipo_no* inicio){
     }else{
         printf("\n    Nao e possivel excluir, pois a lista nao existe!\n\n");
     }
+
+    return inicio;
 }
 
 // 6) - Finalizar o programa e liberar os ponteiros se existirem
