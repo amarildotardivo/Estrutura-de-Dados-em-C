@@ -63,7 +63,7 @@ tipo_no* incluirNome(tipo_no* inicio){
             anterior = atual;
             atual = atual -> proximo;
         }
-    //INSERI O NOME NA PRIMEIRA POSIÇÃO
+    //INSERI O NOME NA PRIMEIRA POSIÇÃO QUANDO A LISTA NÃO EXISTE
     }else{
         novo -> proximo = inicio;
         inicio = novo;
