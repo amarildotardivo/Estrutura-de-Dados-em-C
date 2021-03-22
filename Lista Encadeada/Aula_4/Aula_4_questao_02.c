@@ -36,17 +36,27 @@ tipo_no* incluirNome(tipo_no* inicio){
                     
                     anterior -> proximo = novo;
                     novo -> proximo = atual;
+
+                    printf("\n        O nome [%s] foi incluido com sucesso!\n\n", novo -> nome);
+                    return inicio;
+
                 //INSERI O NOME NA PRIMEIRA POSIÇÃO QUANDO A LISTA EXISTE
                 }else{
                     
                     novo -> proximo = inicio;
                     inicio = novo;
+
+                    printf("\n        O nome [%s] foi incluido com sucesso!\n\n", novo -> nome);
+                    return inicio;
                 }
             // INSERI O NOME NA ÚLTIMA POSIÇÃO
             }else if(atual -> proximo == NULL){
                     
                     atual -> proximo = novo;
                     novo -> proximo = NULL;
+
+                    printf("\n        O nome [%s] foi incluido com sucesso!\n\n", novo -> nome);
+                    return inicio;
 
             }
             // ANDA PELA LISTA
