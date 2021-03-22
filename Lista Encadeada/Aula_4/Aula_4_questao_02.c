@@ -13,7 +13,6 @@ typedef struct no{
 // 1) - Incluir Nome
 tipo_no* incluirNome(tipo_no* inicio){
     char nome[tam_nome];
-    int posicao = 0;
     tipo_no *novo, *atual = inicio, *anterior = NULL;
     
     printf("\n    Digite o nome a ser incluido na lista: ");
@@ -188,7 +187,7 @@ tipo_no* excluirTodosNomes(tipo_no* inicio){
 }
 
 // 6) - Finalizar o programa e liberar os ponteiros se existirem
-int finalizarPrograma(inicio){
+int finalizarPrograma(tipo_no* inicio){
     tipo_no *atual;
 
     if(inicio != NULL){
