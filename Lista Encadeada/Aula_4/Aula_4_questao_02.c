@@ -17,8 +17,7 @@ tipo_no* incluirNome(tipo_no* inicio){
     
     printf("\n    Digite o nome a ser incluido na lista: ");
     // LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
-    fflush(stdin);
-    scanf("%[^\n]s", nome);
+    scanf(" %[^\n]s", nome);
     
     novo = (tipo_no*) malloc(sizeof(tipo_no));
     strcpy(novo -> nome, nome);
@@ -83,8 +82,7 @@ tipo_no* excluirNome(tipo_no* inicio){
 
     printf("\n    Digite o nome a ser excluido: ");
     // LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
-    fflush(stdin);
-    scanf("%[^\n]s", nome);
+    scanf(" %[^\n]s", nome);
 
     if(inicio != NULL){
         //ANDA PELA LISTA ENQUANTO NÃO ENCONTRA O FINAL DA LISTA OU O NOME DIGITADO PELO USUÁRIO
@@ -127,8 +125,7 @@ void buscarNome(tipo_no* inicio){
 
     printf("\n    Digite o nome a ser buscado: ");
     // LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
-    fflush(stdin);
-    scanf("%[^\n]s", nome);
+    scanf(" %[^\n]s", nome);
 
     if(inicio != NULL){
 
