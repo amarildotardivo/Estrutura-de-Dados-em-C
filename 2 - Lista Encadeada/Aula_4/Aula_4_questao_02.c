@@ -16,7 +16,7 @@ tipo_no* incluirNome(tipo_no* inicio){
     tipo_no *novo, *atual = inicio, *anterior = NULL;
     
     printf("\n    Digite o nome a ser incluido na lista: ");
-    // LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
+    // " " - ESPAÇO NO INICIO DO SCANF LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
     scanf(" %[^\n]s", nome);
     
     novo = (tipo_no*) malloc(sizeof(tipo_no));
@@ -81,7 +81,7 @@ tipo_no* excluirNome(tipo_no* inicio){
     tipo_no *atual = inicio, *anterior = NULL;
 
     printf("\n    Digite o nome a ser excluido: ");
-    // LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
+    // " " - ESPAÇO NO INICIO DO SCANF LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
     scanf(" %[^\n]s", nome);
 
     if(inicio != NULL){
@@ -124,7 +124,7 @@ void buscarNome(tipo_no* inicio){
     tipo_no *atual = inicio;
 
     printf("\n    Digite o nome a ser buscado: ");
-    // LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
+    // " " - ESPAÇO NO INICIO DO SCANF LIMPA O BUFFER DO TECLADO PARA NÃO VIR COM LIXO
     scanf(" %[^\n]s", nome);
 
     if(inicio != NULL){
