@@ -1,0 +1,8 @@
+//Compilando o TAD
+gcc -c conjunto.c -o conjunto.o
+
+//Compilando a Main com o TAD
+gcc mainConjunto.c conjunto.o -o conjunto
+
+//Se estiver usando a biblioteca Math.h usar -lm no final da compilação do TAD como abaixo:
+gcc -c esfera.c -o esfera.o -lm
