@@ -356,6 +356,7 @@ int elementoPertenceConjunto(tipo_conjunto* inicio, int id_conjunto, int element
 int menorValor(tipo_conjunto* inicio, int id_conjunto){
     int posicao = 0;
     tipo_conjunto *atual = inicio, *conjunto = NULL;
+
     if( inicio != NULL ){
 
         while ( atual != NULL){
@@ -397,6 +398,7 @@ int menorValor(tipo_conjunto* inicio, int id_conjunto){
 int maiorValor(tipo_conjunto* inicio, int id_conjunto){
     int posicao = 0;
     tipo_conjunto *atual = inicio, *conjunto = NULL;
+    
     if( inicio != NULL ){
 
         while ( atual != NULL){
