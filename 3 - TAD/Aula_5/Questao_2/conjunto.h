@@ -108,4 +108,5 @@ int verificaConjuntoVazio(tipo_conjunto* , int );
 int mostrarConjunto(tipo_conjunto* , int ,int*);
 
 //EXTRA - IMPRIME TODOS OS CONJUNTOS
+// PARAMS - (*inicio da lista)
 void mostrarTodosConjuntos(tipo_conjunto* );
