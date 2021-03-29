@@ -51,8 +51,11 @@ int inserirElemento(tipo_conjunto* inicio, int id_conjunto, int elemento){
         if(elemento >= 0 && elemento < 100){
 
             while(atual != NULL){
+                //ENCONTRA O CONJUNTO INFORMADO PELO USUÁRIO
                 if(posicao == id_conjunto){
+                    //VARRE O VETOR DO CONJUNTO AFIM DE INSERIR O NUMERO
                     for(int i = 0; i < tamanho; i++){
+                        //VERIFICA SE O NUMERO SOLICITADO É IGUAL A POSIÇÃO DO VETOR
                         if(i == elemento && atual -> valores[i] != 1){
                             atual ->valores[i] = 1;
                             atual ->tamanho_conjunto++;
@@ -92,8 +95,11 @@ int removeElemento(tipo_conjunto* inicio, int id_conjunto, int elemento){
         if(elemento >= 0 && elemento < 100){
 
             while(atual != NULL){
+                //ENCONTRA O CONJUNTO INFORMADO PELO USUÁRIO
                 if(posicao == id_conjunto){
+                    //VARRE O VETOR DO CONJUNTO AFIM DE INSERIR O NUMERO
                     for(int i = 0; i < tamanho; i++){
+                        //VERIFICA SE O NUMERO SOLICITADO É IGUAL A POSIÇÃO DO VETOR
                         if(i == elemento && atual -> valores[i] != 0){
                             atual ->valores[i] = 0;
                             atual ->tamanho_conjunto--;
@@ -133,7 +139,7 @@ int uniaoConjuntos(tipo_conjunto* inicio, int id_conjunto, int id_conjunto_2, in
     if( inicio != NULL ){
         
         while( atual != NULL ){
-            
+            //ENCONTRA O CONJUNTO INFORMADO PELO USUÁRIO
             if( id_conjunto == posicao ){
                 
                 conjunto_1 = atual;
@@ -193,7 +199,7 @@ int intersecaoConjuntos(tipo_conjunto* inicio, int id_conjunto, int id_conjunto_
     if( inicio != NULL ){
         
         while( atual != NULL ){
-            
+            //ENCONTRA O CONJUNTO INFORMADO PELO USUÁRIO
             if( id_conjunto == posicao ){
                 
                 conjunto_1 = atual;
@@ -254,7 +260,7 @@ int diferencaConjuntos(tipo_conjunto* inicio, int id_conjunto, int id_conjunto_2
     if( inicio != NULL ){
         
         while( atual != NULL ){
-            
+            //ENCONTRA O CONJUNTO INFORMADO PELO USUÁRIO
             if( id_conjunto == posicao ){
                 
                 conjunto_1 = atual;
@@ -360,11 +366,11 @@ int menorValor(tipo_conjunto* inicio, int id_conjunto){
     if( inicio != NULL ){
 
         while ( atual != NULL){
-
+            //ENCONTRA O CONJUNTO INFORMADO PELO USUÁRIO
             if( posicao == id_conjunto ){
 
                 conjunto = atual;
-
+                //VERIFICA SE O CONJUNTO NÃO É VAZIO
                 if ( conjunto -> tamanho_conjunto > 0 ){
 
                     for(int i = 0; i < tamanho; i++){
@@ -402,11 +408,11 @@ int maiorValor(tipo_conjunto* inicio, int id_conjunto){
     if( inicio != NULL ){
 
         while ( atual != NULL){
-
+            //ENCONTRA O CONJUNTO INFORMADO PELO USUÁRIO
             if( posicao == id_conjunto ){
 
                 conjunto = atual;
-
+                //VERIFICA SE O CONJUNTO NÃO É VAZIO
                 if ( conjunto -> tamanho_conjunto > 0 ){
 
                     for(int i = tamanho - 1; i >= 0; i--){
@@ -444,7 +450,7 @@ int verificaIguais(tipo_conjunto* inicio, int id_conjunto, int id_conjunto2){
     if ( inicio != NULL ){
 
         while( atual != NULL ){
-
+            //ENCONTRA O CONJUNTO INFORMADO PELO USUÁRIO
             if ( id_conjunto == posicao ){
                 conjunto_1 = atual;
 
@@ -454,7 +460,7 @@ int verificaIguais(tipo_conjunto* inicio, int id_conjunto, int id_conjunto2){
             posicao++;
             atual = atual -> proximo;
         }
-
+        //VERIFICA SE OS DOIS CONJUNTOS NECESSÁRIOS PARA VERIFICAÇÃO FORAM ENCONTRADOS
         if ( conjunto_1 != NULL && conjunto_2 != NULL ){
 
             for ( int i = 0; i < tamanho; i++ ){
@@ -499,7 +505,7 @@ int tamanhoConjunto(tipo_conjunto* inicio, int id_conjunto){
     if( inicio != NULL){
 
         while ( atual != NULL){
-
+            //ENCONTRA O CONJUNTO INFORMADO PELO USUÁRIO
             if(id_conjunto == posicao){
                 //Retorna o Tamanho do Conjunto
                 return atual -> tamanho_conjunto;
@@ -524,9 +530,9 @@ int verificaConjuntoVazio(tipo_conjunto* inicio, int id_conjunto){
     if( inicio != NULL){
 
         while ( atual != NULL){
-
+            //ENCONTRA O CONJUNTO INFORMADO PELO USUÁRIO
             if(id_conjunto == posicao){
-                
+                //VERIFICA SE  CONJUNTO É VAZIO OU NÃO
                 if ( atual -> tamanho_conjunto == 0 ){
                     //Retorna 0 - Quando o conjunto é vazio
                     return 0;
@@ -556,9 +562,9 @@ int mostrarConjunto(tipo_conjunto* inicio, int id_conjunto, int* vetor_conjunto)
     if( inicio != NULL ){
 
         while ( atual != NULL ){
-
+            //ENCONTRA O CONJUNTO INFORMADO PELO USUÁRIO
             if ( id_conjunto == posicao ){
-
+                //VERIFICA SE O CONJUNTO NÃO É VAZIO
                 if ( atual -> tamanho_conjunto > 0 ){
 
                     //PREENCHE O VETOR_CONJUNTO NA MAIN PARA SER IMPRESSO
@@ -595,10 +601,14 @@ void mostrarTodosConjuntos(tipo_conjunto* inicio){
         
         printf("\n    Lista de Conjuntos:\n\n");
         while(atual != NULL){
+
             printf("      Posicao: [%d]\n", posicao);
             printf("      Valores do Conjunto:");
+
             if(atual -> tamanho_conjunto > 0){
+
                 for(int i = 0; i < tamanho; i++){
+
                     if(atual -> valores[i] == 1){
                         printf("[ %d ]", i);
 
@@ -607,7 +617,9 @@ void mostrarTodosConjuntos(tipo_conjunto* inicio){
             }else{
                 printf("[ Conjunto Vazio ]");
             }
-            printf("\n      Tamanho: %d\n\n", atual -> tamanho_conjunto);   
+            
+            printf("\n      Tamanho: %d\n\n", atual -> tamanho_conjunto);  
+
             atual = atual -> proximo;
             posicao++;
         }
