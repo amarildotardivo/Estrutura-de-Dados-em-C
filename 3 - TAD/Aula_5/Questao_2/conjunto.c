@@ -604,7 +604,7 @@ void mostrarTodosConjuntos(tipo_conjunto* inicio){
 
             printf("      Posicao: [%d]\n", posicao);
             printf("      Valores do Conjunto:");
-
+            //VERIFICA SE O CONJUNTO É VAZIO
             if(atual -> tamanho_conjunto > 0){
 
                 for(int i = 0; i < tamanho; i++){
@@ -617,7 +617,7 @@ void mostrarTodosConjuntos(tipo_conjunto* inicio){
             }else{
                 printf("[ Conjunto Vazio ]");
             }
-            
+
             printf("\n      Tamanho: %d\n\n", atual -> tamanho_conjunto);  
 
             atual = atual -> proximo;

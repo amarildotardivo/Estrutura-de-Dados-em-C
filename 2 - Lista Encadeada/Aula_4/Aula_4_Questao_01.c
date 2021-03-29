@@ -75,9 +75,10 @@ tipo_no* excluirElementoFinal(tipo_no* inicio){
         printf("\n    O numero excluido foi: [%d]\n\n", atual -> dado);
         free(atual);
 
+        //VERIFICA SE O ELEMENTO A EXCLUIR É O ÚNICO DA LISTA
         if(anterior == NULL){
             inicio = NULL;
-            
+        
         }else{
             anterior -> proximo = NULL;     
         }

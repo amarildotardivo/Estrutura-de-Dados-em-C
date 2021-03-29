@@ -128,7 +128,7 @@ void buscarNome(tipo_no* inicio){
     scanf(" %[^\n]s", nome);
 
     if(inicio != NULL){
-
+        //ANDA PELA LISTA ATÉ ACHAR O NOME OU O FIM DA LISTA
         while(atual != NULL && strcmp(nome, atual -> nome) != 0){
             atual = atual -> proximo;
             posicao++;

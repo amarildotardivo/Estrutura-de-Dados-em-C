@@ -4,7 +4,8 @@
 int** ordenar(int n, int* vetorInteiro){
     int **w, *aux;
 
-    //Alocando memória para o ponteiro w
+    //Alocando memória para o ponteiro w que deve ser um ponteiro para ponteiros
+    //pois guarda endereços de memória
     w = (int **) malloc(n * sizeof (int*));
 
     //Preenchendo o ponteiro w com notação vetor

@@ -21,7 +21,7 @@ int main(){
         scanf("%d", &opcao);
 
         switch (opcao){
-
+            //INCLUSÃO NO INICIO DA LISTA
             case 1:
                 printf("\n    Digite o elemento a ser incluido na lista: ");
                 scanf("%d", &elemento);
@@ -32,7 +32,8 @@ int main(){
                 inicio = novo;
 
                 break;
-
+            
+            //EXCLUSÃO NO INICIO DA LISTA
             case 2:
 
                 if(inicio != NULL){
@@ -46,6 +47,7 @@ int main(){
 
                 break;
             
+            //IMPRESSÃO DOS ELEMENTOS DA LISTA
             case 3:
                 atual = inicio;
 
@@ -66,6 +68,7 @@ int main(){
                 
                 break;
             
+            //FINALIZA O PROGRAMA E LIMPA A LISTA
             case 4:
                 if(inicio == NULL){
                     printf("\n    Programa finalizado, nao existem ponteiros a serem liberados!!!\n\n");

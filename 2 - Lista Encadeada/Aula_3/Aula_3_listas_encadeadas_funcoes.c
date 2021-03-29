@@ -7,6 +7,7 @@ typedef struct no
     struct no *proximo;
 } tipo_no;
 
+//EXCLUSÃO NO INICIO DA LISTA
 tipo_no* incluirElemento(tipo_no* inicio, tipo_no* novo){
     int elemento;
 
@@ -21,6 +22,7 @@ tipo_no* incluirElemento(tipo_no* inicio, tipo_no* novo){
     return inicio;
 }
 
+//EXCLUSÃO NO INICIO DA LISTA
 tipo_no* excluirElemento(tipo_no* inicio, tipo_no* auxiliar){
 
     if(inicio != NULL){
@@ -35,6 +37,7 @@ tipo_no* excluirElemento(tipo_no* inicio, tipo_no* auxiliar){
     return inicio;
 }
 
+//IMPRESSÃO DOS ELEMENTOS DA LISTA
 void imprimirLista(tipo_no* inicio, tipo_no* atual){
     atual = inicio;
 
@@ -53,6 +56,7 @@ void imprimirLista(tipo_no* inicio, tipo_no* atual){
     }
 }
 
+//FINALIZA O PROGRAMA E LIMPA A LISTA
 void finalizarPrograma(tipo_no* inicio, tipo_no* auxiliar){
     
     if(inicio == NULL){
