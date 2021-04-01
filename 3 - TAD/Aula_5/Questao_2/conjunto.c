@@ -558,7 +558,7 @@ int verificaConjuntoVazio(tipo_conjunto* inicio, int id_conjunto){
 int mostrarConjunto(tipo_conjunto* inicio, int id_conjunto, int* vetor_conjunto){
     int posicao = 0;
     tipo_conjunto *atual = inicio;
-
+    
     if( inicio != NULL ){
 
         while ( atual != NULL ){
