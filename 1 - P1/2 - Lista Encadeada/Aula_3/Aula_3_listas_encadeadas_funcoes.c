@@ -7,7 +7,7 @@ typedef struct no
     struct no *proximo;
 } tipo_no;
 
-//EXCLUSÃO NO INICIO DA LISTA
+//INCLUSÃO NO INICIO DA LISTA
 tipo_no* incluirElemento(tipo_no* inicio, tipo_no* novo){
     int elemento;
 
