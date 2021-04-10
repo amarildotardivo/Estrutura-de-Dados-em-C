@@ -33,6 +33,29 @@ int main()
     inserirElementoOrdenado(listaOrdenada_2, 5);
     imprimirLista(listaOrdenada_2);
 
+
+// ---------------- QUESTÃO 01 --------------------------------
+    
+    printf("Media da Lista: %.2f \n\n", calcularMedia(listaOrdenada) );
+    printf("Profundidade da Lista: %d \n\n", verificaProfundidade(listaOrdenada, 15) );
+    
+    int resultado = compararListas(listaOrdenada, listaOrdenada_2);
+
+    if( resultado == 0 ){
+        printf("Lista nao Existe! \n\n");
+
+    }else if ( resultado == 1 ){
+        printf("Lista sao Iguais! \n\n");
+
+    }else if( resultado == -1 ){
+        printf("Algum dado de alguma Lista e diferente! \n\n");
+
+    }else if( resultado == -2 ){
+        printf("O Tamanho das Listas é Diferente! \n\n");
+    }
+
+// ---------------- FIM DA QUESTÃO 01 --------------------------------
+
     excluirElementoOrdenado(listaOrdenada, 5);
     imprimirLista(listaOrdenada);
 
@@ -65,28 +88,6 @@ int main()
     {
         printf("A lista ainda existe!");
     }
-
-// ---------------- QUESTÃO 01 --------------------------------
-    
-    printf("Media da Lista: %d \n\n", calcularMedia(listaOrdenada) );
-    printf("Profundidade da Lista: %d \n\n", verificaProfundidade(listaOrdenada, 15) );
-    
-    int resultado = compararListas(listaOrdenada, listaOrdenada_2);
-
-    if( resultado == 0 ){
-        printf("Lista nao Existe! \n\n");
-
-    }else if ( resultado == 1 ){
-        printf("Lista sao Iguais! \n\n");
-
-    }else if( resultado == -1 ){
-        printf("Algum dado de alguma Lista é diferente! \n\n");
-
-    }else if( resultado == -2 ){
-        printf("O Tamanho das Listas é Diferente! \n\n");
-    }
-
-// ---------------- FIM DA QUESTÃO 01 --------------------------------
 
     return 0;
 }

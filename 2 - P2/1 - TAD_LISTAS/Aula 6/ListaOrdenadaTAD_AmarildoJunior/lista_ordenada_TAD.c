@@ -133,7 +133,7 @@ int excluirElementoOrdenado(tipo_lista* lista, int dado)
 
 // ---------------- QUESTÃO 01 --------------------------------
 // 1 - CALCULAR MEDIA ARITIMÉTICA DA LISTA
-int calcularMedia( tipo_lista* lista ){
+float calcularMedia( tipo_lista* lista ){
 
     tipo_no *atual = lista -> inicio;
     int elementos = 0, media; 
@@ -159,7 +159,7 @@ int calcularMedia( tipo_lista* lista ){
 // 2 - VERIFICA PROFUNDIDADE DE UMA CELULA DA LISTA
 int verificaProfundidade( tipo_lista* lista, int elemento ){
     tipo_no *atual = lista ->inicio;
-    int profundidade;
+    int profundidade = 0;
 
     if ( lista ->inicio != NULL ){
 
