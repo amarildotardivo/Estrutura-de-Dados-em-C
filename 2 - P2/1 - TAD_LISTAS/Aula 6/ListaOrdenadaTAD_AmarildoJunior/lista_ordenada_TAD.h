@@ -14,7 +14,7 @@ tipo_lista* apagarLista(tipo_lista*);
 // 1 - CALCULAR MEDIA ARITIMÉTICA DA LISTA
 // Retorna "media"
 // Retorna 0 - Quando lista não existe
-int calcularMedia( tipo_lista* lista);
+float calcularMedia( tipo_lista* lista);
 
 // 2 - VERIFICA PROFUNDIDADE DE UMA CELULA DA LISTA
 // Retorna "profundidade"

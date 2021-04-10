@@ -36,7 +36,7 @@ int main()
 
 // ---------------- QUESTÃO 01 --------------------------------
     
-    printf("Media da Lista: %.2f \n\n", calcularMedia(listaOrdenada) );
+    printf("\nMedia da Lista: %.2f \n\n", calcularMedia(listaOrdenada) );
     printf("Profundidade da Lista: %d \n\n", verificaProfundidade(listaOrdenada, 15) );
     
     int resultado = compararListas(listaOrdenada, listaOrdenada_2);

@@ -136,12 +136,13 @@ int excluirElementoOrdenado(tipo_lista* lista, int dado)
 float calcularMedia( tipo_lista* lista ){
 
     tipo_no *atual = lista -> inicio;
-    int elementos = 0, media; 
+    float elementos = 0;
+    float media = 0; 
 
     if( lista -> inicio != NULL){
 
         while( atual != NULL){
-            elementos += atual -> dado;
+            elementos = elementos + atual -> dado;
 
             atual = atual -> proximo;
         }
