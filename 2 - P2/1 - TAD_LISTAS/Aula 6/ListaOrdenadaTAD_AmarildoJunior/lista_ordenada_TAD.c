@@ -130,3 +130,86 @@ int excluirElementoOrdenado(tipo_lista* lista, int dado)
         return 0;
     }
 }
+
+// ---------------- QUESTÃO 01 --------------------------------
+// 1 - CALCULAR MEDIA ARITIMÉTICA DA LISTA
+int calcularMedia( tipo_lista* lista ){
+
+    tipo_no *atual = lista -> inicio;
+    int elementos = 0, media; 
+
+    if( lista -> inicio != NULL){
+
+        while( atual != NULL){
+            elementos += atual -> dado;
+
+            atual = atual -> proximo;
+        }
+
+        media = elementos / lista -> quantidadeElementos;
+
+        return media;
+
+    }else {
+        // Retorna 0 - Quando lista não existe
+        return 0;
+    }
+}
+
+// 2 - VERIFICA PROFUNDIDADE DE UMA CELULA DA LISTA
+int verificaProfundidade( tipo_lista* lista, int elemento ){
+    tipo_no *atual = lista ->inicio;
+    int profundidade;
+
+    if ( lista ->inicio != NULL ){
+
+        while( atual != NULL ){
+
+            if ( atual -> dado == elemento){
+                profundidade++;
+                return profundidade;
+            }
+
+            profundidade++;
+            atual = atual -> proximo;
+        }
+
+    }else {
+        // Retorna 0 - Quando lista não existe
+        return 0;
+    }
+}
+
+// 3 - COMPARAR 2 LISTAS ÁRA VERIFICAR SE SÃO IGUAIS
+int compararListas( tipo_lista* lista_1, tipo_lista* lista_2 ){
+    tipo_no *atual_1 = lista_1 -> inicio, *atual_2 = lista_2 -> inicio;
+
+    if ( ( lista_1 -> inicio != NULL ) && ( lista_2 -> inicio != NULL ) ){
+    
+        if(lista_1 -> quantidadeElementos == lista_2 -> quantidadeElementos){
+
+            while( ( atual_1 != NULL ) && ( atual_2 != NULL ) ){
+
+                if( atual_1 -> dado != atual_2 -> dado){
+                    //Retorna -1 - Quando o dado das listas forem diferentes
+                    return -1;
+                }
+
+                atual_1 = atual_1 -> proximo;
+                atual_2 = atual_2 -> proximo;
+            }
+            //Retorna 1 - Quando as listas são iguais
+            return 1;
+
+        }else {
+            //Retorna 2 - Quando os tamanhos das listas são diferentes
+            return -2;
+        }
+    }else {
+        // Retorna 0 - Quando lista não existe
+        return 0;
+    }
+
+}
+
+// ---------------- FIM DA QUESTÃO 01 --------------------------------
