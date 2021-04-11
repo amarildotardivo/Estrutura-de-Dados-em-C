@@ -118,7 +118,7 @@ int* obterElementos(tipo_lista* lista){
 
 // H) APAGAR ELEMENTOS IGUAIS
 void apagarIguais(tipo_lista* lista, int elemento){
-    tipo_no *atual = lista -> inicio, *anterior = NULL;
+    tipo_no *atual = lista -> inicio, *anterior = NULL, *auxiliar = NULL;
 
     while( atual != NULL){
         
@@ -127,12 +127,14 @@ void apagarIguais(tipo_lista* lista, int elemento){
             if( anterior == NULL ){
                 lista -> inicio = atual -> proximo;
                 lista -> quantidadeElementos--;
-                free(atual);
+                auxiliar = atual;
+                free(auxiliar);
 
             }else {
                 anterior -> proximo = atual -> proximo;
                 lista -> quantidadeElementos--;
-                free(atual);
+                auxiliar = atual;
+                free(auxiliar);
             }
         }
 
@@ -169,8 +171,8 @@ int main(){
 
         incluirElemento(listaEncadeada, 1);
         incluirElemento(listaEncadeada, 2);
-        incluirElemento(listaEncadeada, 2);
-        incluirElemento(listaEncadeada, 2);
+        incluirElemento(listaEncadeada, 1);
+        incluirElemento(listaEncadeada, 3);
         
         incluirElemento(listaEncadeada_2, 5);
         incluirElemento(listaEncadeada_2, 6);
@@ -228,7 +230,7 @@ int main(){
             printf("    Lista Nao Esta Vazia!!!\n\n");
         }
 
-        apagarIguais(listaEncadeada, 2);
+        apagarIguais(listaEncadeada, 1);
         imprimirLista(listaEncadeada);
 
         resultado = apagarLista(listaEncadeada);
