@@ -128,17 +128,27 @@ void apagarIguais(tipo_lista* lista, int elemento){
                 lista -> inicio = atual -> proximo;
                 lista -> quantidadeElementos--;
                 auxiliar = atual;
+                
+                anterior = atual;
+                atual = atual -> proximo;
+                
                 free(auxiliar);
 
             }else {
                 anterior -> proximo = atual -> proximo;
                 lista -> quantidadeElementos--;
                 auxiliar = atual;
+
+                atual = atual -> proximo;
+
                 free(auxiliar);
             }
+        }else{
+
+            anterior = atual;
+            atual = atual -> proximo;
         }
 
-        atual = atual -> proximo;
     }
 }
 
