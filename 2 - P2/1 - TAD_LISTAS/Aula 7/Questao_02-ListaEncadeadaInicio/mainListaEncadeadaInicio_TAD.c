@@ -49,21 +49,11 @@ int main(){
         printf("\n\n");
 
         printf("    Elementos Obtidos da Lista 1:");
-        vetor = obterElementos(listaEncadeada);
-        tamanho = obterQuantidadeElementos(listaEncadeada);
-
-        for(int i = 0; i < tamanho; i++){
-            printf(" [%d] ", vetor[i]);
-        }
+        imprimirLista(listaEncadeada);
         printf("\n");
 
         printf("    Elementos Obtidos da Lista 2:");
-        vetor = obterElementos(listaEncadeada_2);
-        tamanho = obterQuantidadeElementos(listaEncadeada_2);
-
-        for(int i = 0; i < tamanho; i++){
-            printf(" [%d] ", vetor[i]);
-        }
+        imprimirLista(listaEncadeada_2);
 
         printf("\n\n");
         
