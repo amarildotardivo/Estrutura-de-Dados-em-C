@@ -25,13 +25,10 @@ int obterQuantidadeElementos(tipo_lista* lista);
 // F) APAGAR LISTA
 //Retorna 1 - Quando a lista foi apagada
 //Retorna 0 - Quando a lista está vazia
-int apagarLista(tipo_lista* lista);
+void apagarLista(tipo_lista* lista);
 
 // G) OBTER ELEMENTOS DA LISTA
 int* obterElementos(tipo_lista* lista);
 
 // H) CONCATENAR LISTAS
 void concatenarListas(tipo_lista* lista, tipo_lista* lista_2);
-
-// EXTRA - IMPRESSÃO DOS ELEMENTOS DA LISTA
-void imprimirLista(tipo_lista* lista);

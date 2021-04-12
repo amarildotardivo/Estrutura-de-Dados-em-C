@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 
 typedef struct no
@@ -78,7 +77,7 @@ int obterQuantidadeElementos(tipo_lista* lista){
 }
  
 // F) APAGAR LISTA
-int apagarLista(tipo_lista* lista){
+void apagarLista(tipo_lista* lista){
     tipo_no* auxiliar;
 
     if(lista -> inicio != NULL){
@@ -89,12 +88,6 @@ int apagarLista(tipo_lista* lista){
             lista -> quantidadeElementos--;
             free(auxiliar);
         }
-        //Retorna 1 - Quando a lista foi apagada
-        return 1;
-
-    }else {
-        //Retorna 0 - Quando a lista está vazia
-        return 0;
     }
 
 }
@@ -122,30 +115,9 @@ void concatenarListas(tipo_lista* lista, tipo_lista* lista_2){
 
     while( atual_2 != NULL ){
         incluirElemento(lista, atual_2 -> dado);
-
+        
         atual_2 = atual_2 -> proximo;
     }
 
-    lista -> quantidadeElementos = lista ->quantidadeElementos + lista_2 -> quantidadeElementos;
-
     apagarLista(lista_2);
-}
-
-// EXTRA - IMPRESSÃO DOS ELEMENTOS DA LISTA
-void imprimirLista(tipo_lista* lista){
-    tipo_no* atual = lista -> inicio;
-
-    if(lista -> inicio != NULL){
-
-        printf("\n    Lista: ");
-        while (atual != NULL){
-            
-            printf("[%d] ", atual -> dado);
-            atual = atual -> proximo;
-        }
-        printf("\n\n");
-
-    }else{
-        printf("\n    Nao e possivel imprimir, pois a lista esta vazia!\n\n");
-    }
 }
