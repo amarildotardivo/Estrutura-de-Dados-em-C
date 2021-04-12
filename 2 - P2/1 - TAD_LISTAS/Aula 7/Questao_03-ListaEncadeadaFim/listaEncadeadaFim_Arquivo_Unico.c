@@ -195,21 +195,14 @@ void apagarIguais(tipo_lista* lista, int elemento){
 
 // EXTRA - IMPRESSÃO DOS ELEMENTOS DA LISTA
 void imprimirLista(tipo_lista* lista){
-    tipo_no* atual = lista -> inicio;
+    int *vetor, tamanho;
 
-    if(lista -> inicio != NULL){
+        vetor = obterElementos(lista);
+        tamanho = obterQuantidadeElementos(lista);
 
-        printf("\n    Lista: ");
-        while (atual != NULL){
-            
-            printf("[%d] ", atual -> dado);
-            atual = atual -> proximo;
+        for(int i = 0; i < tamanho; i++){
+            printf(" [%d] ", vetor[i]);
         }
-        printf("\n\n");
-
-    }else{
-        printf("\n    Nao e possivel imprimir, pois a lista esta vazia!\n\n");
-    }
 }
 
 
@@ -230,15 +223,21 @@ int main(){
         incluirElemento(listaEncadeada_2, 7);
         incluirElemento(listaEncadeada_2, 8);
         
+        printf("\n");
+        printf("    Imprimindo Lista 1:");
         imprimirLista(listaEncadeada);
+        
+        printf("\n");
+
+        printf("    Imprimindo Lista 2:");
         imprimirLista(listaEncadeada_2);
+        
+        printf("\n\n");
 
-        printf("\n");
+        printf("    Quantidade de elementos da Lista 1: [%d] \n", obterQuantidadeElementos(listaEncadeada));
+        printf("    Quantidade de elementos da Lista 2: [%d] \n", obterQuantidadeElementos(listaEncadeada_2));
 
-        printf("    Quantidade de elementos da Lista 1: [%d] \n\n", obterQuantidadeElementos(listaEncadeada));
-        printf("    Quantidade de elementos da Lista 2: [%d] \n\n", obterQuantidadeElementos(listaEncadeada_2));
-
-        printf("\n");
+        printf("\n\n");
 
         printf("    Elementos Obtidos da Lista 1:");
         vetor = obterElementos(listaEncadeada);
@@ -247,7 +246,7 @@ int main(){
         for(int i = 0; i < tamanho; i++){
             printf(" [%d] ", vetor[i]);
         }
-        printf("\n\n");
+        printf("\n");
 
         printf("    Elementos Obtidos da Lista 2:");
         vetor = obterElementos(listaEncadeada_2);
@@ -256,22 +255,22 @@ int main(){
         for(int i = 0; i < tamanho; i++){
             printf(" [%d] ", vetor[i]);
         }
+
         printf("\n\n");
-        
         
         dado = excluirElemento(listaEncadeada);  
-        printf("\n    O Elemento Excluido da Lista 1 foi: [%d]\n", dado);
+        printf("    O Elemento Excluido da Lista 1 foi: [%d]\n", dado);
 
         dado = excluirElemento(listaEncadeada_2);
-        printf("\n    O Elemento Excluido da Lista 2 foi: [%d]\n", dado);
+        printf("    O Elemento Excluido da Lista 2 foi: [%d]\n", dado);
 
-        printf("\n\n");
+        printf("\n");
 
         resultado = verificaListaVazia(listaEncadeada);      
         if( resultado == 1 ){
-            printf("    Lista Esta Vazia!\n\n");
+            printf("    Lista Esta Vazia!\n");
         }else {
-            printf("    Lista Nao Esta Vazia!!!\n\n");
+            printf("    Lista Nao Esta Vazia!!!\n");
         }
 
         resultado = verificaListaVazia(listaEncadeada_2);      
@@ -281,14 +280,22 @@ int main(){
             printf("    Lista Nao Esta Vazia!!!\n\n");
         }
 
+        printf("\n");
+        printf("    Iguais Apagados da Lista 1!!! Numero informado foi 1.");
         apagarIguais(listaEncadeada, 1);
+        
+        printf("\n\n");
+
+        printf("    Imprimindo Lista 1:");
         imprimirLista(listaEncadeada);
+
+        printf("\n\n");
 
         resultado = apagarLista(listaEncadeada);
         if( resultado == 1 ){
-            printf("    Lista Apagada!!!\n\n");
+            printf("    Lista Apagada!!!\n");
         }else {
-            printf("    Lista Esta Vazia!!!\n\n");
+            printf("    Lista Esta Vazia!!!\n");
         }
 
         resultado = apagarLista(listaEncadeada_2);

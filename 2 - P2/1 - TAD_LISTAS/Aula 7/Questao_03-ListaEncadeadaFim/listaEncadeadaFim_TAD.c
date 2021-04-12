@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 
 typedef struct no
@@ -190,24 +189,5 @@ void apagarIguais(tipo_lista* lista, int elemento){
             atual = atual -> proximo;
         }
 
-    }
-}
-
-// EXTRA - IMPRESSÃO DOS ELEMENTOS DA LISTA
-void imprimirLista(tipo_lista* lista){
-    tipo_no* atual = lista -> inicio;
-
-    if(lista -> inicio != NULL){
-
-        printf("\n    Lista: ");
-        while (atual != NULL){
-            
-            printf("[%d] ", atual -> dado);
-            atual = atual -> proximo;
-        }
-        printf("\n\n");
-
-    }else{
-        printf("\n    Nao e possivel imprimir, pois a lista esta vazia!\n\n");
     }
 }

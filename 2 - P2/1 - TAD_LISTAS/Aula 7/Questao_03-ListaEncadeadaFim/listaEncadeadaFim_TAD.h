@@ -32,6 +32,3 @@ int* obterElementos(tipo_lista* lista);
 
 // H) APAGAR ELEMENTOS IGUAIS
 void apagarIguais(tipo_lista* lista, int elemento);
-
-// EXTRA - IMPRESSÃO DOS ELEMENTOS DA LISTA
-void imprimirLista(tipo_lista* lista);
