@@ -112,15 +112,25 @@ int* obterElementos(tipo_lista* lista){
 
 // H) CONCATENAR LISTAS
 void concatenarListas(tipo_lista* lista, tipo_lista* lista_2){
-    tipo_no *atual_2 = lista_2 -> inicio;
+    tipo_no *atual = lista -> inicio;
 
-    while( atual_2 != NULL ){
+    while(atual->proximo != NULL){
+        atual = atual ->proximo;
+    }
+
+    atual->proximo = lista_2->inicio;
+
+    lista->quantidadeElementos = lista->quantidadeElementos + lista_2->quantidadeElementos;
+    lista_2->quantidadeElementos = 0;
+    lista_2->inicio = NULL;
+
+    /*while( atual_2 != NULL ){
         incluirElemento(lista, atual_2 -> dado);
         
         atual_2 = atual_2 -> proximo;
     }
 
-    apagarLista(lista_2);
+    apagarLista(lista_2);*/
 }
 
 // EXTRA - IMPRESSÃO DOS ELEMENTOS DA LISTA
@@ -137,7 +147,7 @@ void imprimirLista(tipo_lista* lista){
 
 
 int main(){
-    int *vetor, tamanho, dado, resultado;
+    int dado, resultado;
     tipo_lista *listaEncadeada = NULL, *listaEncadeada_2 = NULL;
 
         listaEncadeada = criarLista();
