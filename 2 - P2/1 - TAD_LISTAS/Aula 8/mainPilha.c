@@ -14,9 +14,9 @@ int main(){
 
         printf(" 3) - Desempilhar elemento \n\n");
         
-        printf(" 4) - Veriﬁcar se a Pilha esta vazia \n\n");
+        printf(" 4) - Verificar se a Pilha esta vazia \n\n");
 
-        printf(" 5) - Veriﬁcar o tamanho da Pilha \n\n");
+        printf(" 5) - Verificar o tamanho da Pilha \n\n");
 
         printf(" 6) - Apagar Pilha \n\n");
 
@@ -28,12 +28,13 @@ int main(){
         switch (opcao){
 
         case 1:
-            pilha = criarPilha();
 
-            if( pilha != NULL){
+            if (pilha == NULL){
+                pilha = criarPilha();
                 printf("\n    Pilha Criada com Sucesso!\n");
+                
             }else{
-                printf("\n    Ocorreu um erro ao criar a Pilha!\n");
+                printf("\n    Pilha Ja Foi Criada!\n");
             }
 
             break;
@@ -48,7 +49,17 @@ int main(){
 
         case 3:
             elemento = desempilhar(pilha);
-            printf("\n    Elemento Desempilhado foi: [%d]!\n", elemento);
+
+            if( elemento == 0){
+                printf("\n    Pilha esta Vazia!!!\n");    
+
+            }else if( elemento == -1){
+                printf("\n    Pilha Nao Existe!!!\n"); 
+
+            }else{
+                printf("\n    Elemento Desempilhado foi: [%d]\n", elemento);
+            }
+
             break;
 
         case 4:
@@ -57,7 +68,9 @@ int main(){
             if(resultado == 1){
                 printf("\n    Pilha Esta Vazia!\n");
 
-            }else{
+            }else if(resultado == -1){
+                printf("\n    Pilha Nao Existe!\n");
+            } else{
                 printf("\n    Pilha Nao Esta Vazia!\n");
             }
 
@@ -65,12 +78,22 @@ int main(){
 
         case 5:
             resultado = tamanhoPilha(pilha);
-            printf("\n    Tamanho da Pilha: [%d]\n", resultado);
+
+            if(resultado == -1){
+                printf("\n    Pilha Nao Existe!\n");
+            }else{
+                printf("\n    Tamanho da Pilha: [%d]\n", resultado);
+            }
             break;
         
         case 6:
-            apagarPilha(pilha);
-            printf("\n    Pilha Apagada Com Sucesso!\n");
+            resultado = apagarPilha(pilha);
+            
+            if(resultado == -1){
+                printf("\n    Pilha Nao Existe!\n");
+            }else{
+                printf("\n    Pilha Apagada Com Sucesso!\n");
+            }
             break;
 
         case 7:

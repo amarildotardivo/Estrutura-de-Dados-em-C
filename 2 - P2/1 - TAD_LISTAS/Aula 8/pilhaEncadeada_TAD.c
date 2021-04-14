@@ -40,23 +40,32 @@ int desempilhar(tipo_pilha* pilha){
     tipo_no* auxiliar;
     int dadoExcluido;
 
-    if(pilha -> topo != NULL){
-        auxiliar = pilha -> topo;
-        pilha -> topo = auxiliar -> proximo;
-        dadoExcluido = auxiliar -> dado;
-        pilha -> quantidadeElementos--;
-        free(auxiliar);
+    if(pilha != NULL){
 
-        return dadoExcluido;
+        if(pilha -> topo != NULL){
+            auxiliar = pilha -> topo;
+            pilha -> topo = auxiliar -> proximo;
+            dadoExcluido = auxiliar -> dado;
+            pilha -> quantidadeElementos--;
+            free(auxiliar);
+
+            return dadoExcluido;
+
+        }else{
+            //Retorna 0 - Quando a pilha está vazia
+            return 0;
+        }
 
     }else{
-        //Retorna 0 - Quando a pilha está vazia
-        return 0;
+        //Retorna -1 - Quando Não existir Pilha Criada
+        return -1;
     }
 }
 
 // D) VERIFICAR SE A PILHA ESTÁ VAZIA
 int verificaPilhaVazia(tipo_pilha* pilha){
+    
+    if(pilha != NULL){
 
         if(pilha -> quantidadeElementos == 0){
             //Retorna 1 - Quando a pilha está vazia
@@ -66,29 +75,48 @@ int verificaPilhaVazia(tipo_pilha* pilha){
             //Retorna 0 - Quando a pilha não está vazia
             return 0;
         }
+
+    }else{
+        //Retorna -1 - Quando Não existir Pilha Criada
+        return -1;
+    }
 }
 
 // E) OBTEM O TAMANHO DA PILHA
 int tamanhoPilha(tipo_pilha* pilha){
-    return pilha -> quantidadeElementos;
+    
+    if(pilha != NULL){
+        return pilha -> quantidadeElementos;
+
+    }else{
+        //Retorna -1 - Quando Não existir Pilha Criada
+        return -1;
+    }
 }
 
 // F) APAGAR PILHA
-void apagarPilha(tipo_pilha* pilha){
+int apagarPilha(tipo_pilha* pilha){
     tipo_no* auxiliar;
 
-    if(pilha -> topo != NULL){
-     
-        while (pilha -> topo != NULL){
-            auxiliar = pilha -> topo;
-            pilha -> topo = auxiliar -> proximo;
-            pilha -> quantidadeElementos--;
-            free(auxiliar);
-        }
-    }
+    if(pilha != NULL){
 
-    if(pilha->topo == NULL){
-        free(pilha);
+        if(pilha -> topo != NULL){
+        
+            while (pilha -> topo != NULL){
+                auxiliar = pilha -> topo;
+                pilha -> topo = auxiliar -> proximo;
+                pilha -> quantidadeElementos--;
+                free(auxiliar);
+            }
+        }
+
+        if(pilha->topo == NULL){
+            pilha = NULL;
+        }
+
+    }else{
+        //Retorna -1 - Quando Não existir Pilha Criada
+        return -1;
     }
 
 }
