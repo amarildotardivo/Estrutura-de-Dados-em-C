@@ -30,9 +30,16 @@ int main(){
         case 1:
 
             if (pilha == NULL){
-                pilha = criarPilha();
-                printf("\n    Pilha Criada com Sucesso!\n");
                 
+                pilha = criarPilha();
+                
+                if(pilha != NULL){
+                    printf("\n    Pilha Criada com Sucesso!\n");
+
+                }else{
+                    printf("\n    Ocorreu um erro ao criar a Pilha!!!\n");
+                }
+
             }else{
                 printf("\n    Pilha Ja Foi Criada!\n");
             }
