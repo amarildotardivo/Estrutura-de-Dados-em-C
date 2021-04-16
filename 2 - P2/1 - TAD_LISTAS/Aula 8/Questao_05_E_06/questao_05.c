@@ -2,26 +2,22 @@
 #include <string.h>
 #include "pilhaEncadeadaString.h"
 
-int main(){
-    char frase[21], letra;
+void inverterFrase(tipo_pilha *pilha, char frase[21]){
     int resultado;
-    tipo_pilha *pilha = NULL;
+    char letra;
 
     pilha = criarPilha();
     if(pilha == NULL){
         printf("\n  Pilha nao alocada!!!\n");
     }
 
-    printf("\n  Entre com a frase a ser invertida: ");
-    scanf(" %[^\n]s", frase);
-    
     for( int i = 0; i < strlen(frase); i++){
 
         resultado = empilhar(pilha, frase[i]);
         if(resultado == 0){
             printf("\n  Letra Nao Alocada!!!\n");
         }
-    }    
+    }
 
     int tamanho = tamanhoPilha(pilha);
     
@@ -32,7 +28,17 @@ int main(){
         printf("%c", letra);
     }
     
-    printf("\n\n");
+    printf("\n\n"); 
+}
+
+int main(){
+    char frase[21];
+    tipo_pilha *pilha = NULL;
+
+    printf("\n  Entre com a frase a ser invertida: ");
+    scanf(" %[^\n]s", frase);
+    
+    inverterFrase(pilha, frase);
 
     return 0;
 }
