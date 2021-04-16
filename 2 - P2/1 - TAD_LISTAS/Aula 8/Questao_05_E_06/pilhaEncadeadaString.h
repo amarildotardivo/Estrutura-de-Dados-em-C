@@ -1,4 +1,3 @@
-#include <stdlib.h>
 
 typedef struct pilhaEncadeada tipo_pilha;
 
