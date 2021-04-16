@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <stdio.h>
+
 typedef struct no
 {
     char caracter[1];
@@ -17,6 +19,12 @@ typedef struct pilhaEncadeada
 tipo_pilha* criarPilha(){
     
     tipo_pilha* pilha = (tipo_pilha*) malloc(sizeof(tipo_pilha));
+
+    if(pilha == NULL){
+        //Retorna 0 - Informando que a alocação não foi realizada com sucesso
+        return 0;
+    }
+
     pilha -> topo = NULL;
     pilha -> quantidadeElementos = 0;
 
@@ -24,43 +32,35 @@ tipo_pilha* criarPilha(){
 }
 
 // B) INCLUI NO TOPO DA PILHA
-void empilhar(tipo_pilha* pilha, char elemento){
+int empilhar(tipo_pilha* pilha, char elemento[1]){
     tipo_no* novo;
-
+    
     novo = (tipo_no*) malloc(sizeof(tipo_no));
+
+    if(novo == NULL){
+        //Retorna 0 - Informando que a alocação não foi realizada com sucesso
+        return 0;
+    }
+    
     strcpy(novo->caracter, elemento);
     novo -> proximo = pilha -> topo;
     pilha -> topo = novo;
 
     pilha -> quantidadeElementos++;
-
 }
 
 // C) EXCLUSÃO NO TOPO DA PILHA
 char desempilhar(tipo_pilha* pilha){
+    char caracterExcluido[1];
     tipo_no* auxiliar;
-    int caracterExcluido;
 
-    if(pilha != NULL){
+    auxiliar = pilha -> topo;
+    pilha -> topo = auxiliar -> proximo;
+    strcpy(caracterExcluido, auxiliar->caracter);
+    pilha -> quantidadeElementos--;
+    free(auxiliar);
 
-        if(pilha -> topo != NULL){
-            auxiliar = pilha -> topo;
-            pilha -> topo = auxiliar -> proximo;
-            caracterExcluido = auxiliar -> caracter;
-            pilha -> quantidadeElementos--;
-            free(auxiliar);
-
-            return caracterExcluido;
-
-        }else{
-            //Retorna 0 - Quando a pilha está vazia
-            return "0";
-        }
-
-    }else{
-        //Retorna -1 - Quando Não existir Pilha Criada
-        return "-1";
-    }
+    return *caracterExcluido;
 }
 
 // D) VERIFICAR SE A PILHA ESTÁ VAZIA

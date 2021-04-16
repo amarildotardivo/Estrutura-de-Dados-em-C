@@ -6,7 +6,7 @@ typedef struct pilhaEncadeada tipo_pilha;
 tipo_pilha* criarPilha();
 
 // B) INCLUI NO TOPO DA PILHA
-void empilhar(tipo_pilha* pilha, char elemento);
+int empilhar(tipo_pilha* pilha, char elemento);
 
 // C) EXCLUSÃO NO TOPO DA PILHA
 //Retorna o Dado desempilhado

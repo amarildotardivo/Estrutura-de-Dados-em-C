@@ -2,20 +2,31 @@
 #include "pilhaEncadeadaString.h"
 
 int main(){
-    char caracter;
-    char letra1[1] = "v", letra2[1] = "a";
+    char letra;
+    int resultado;
     tipo_pilha *pilha = NULL;
 
     pilha = criarPilha();
 
-    empilhar(pilha, letra1);
-    empilhar(pilha, letra2);
+    for(int i = 0; i < 4; i++){
+        printf("Entre com a %d Letra: ", i + 1);
+        scanf(" %c", letra);
+        
+        resultado = empilhar(pilha, letra);
+        
+        if(resultado == 0){
+            printf("Letra Nao Empilhada!!!");
+            
+        }else{
+            printf("Letra Empilhada com Sucesso!!!");
+        }
+    }
 
     int tamanho = tamanhoPilha(pilha);
     
     for(int i = 0; i < tamanho; i++){
-        caracter = desempilhar(pilha);
-        printf("%c", caracter);
+        letra = desempilhar(pilha);
+        printf("%c", letra);
     }
     
     return 0;
