@@ -6,6 +6,7 @@ typedef struct pilhaEncadeada tipo_pilha;
 tipo_pilha* criarPilha();
 
 // B) INCLUI NO TOPO DA PILHA
+//Retorna 0 - Informando que a alocação não foi realizada com sucesso
 int empilhar(tipo_pilha* pilha, char elemento);
 
 // C) EXCLUSÃO NO TOPO DA PILHA

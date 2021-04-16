@@ -1,11 +1,8 @@
 #include <stdlib.h>
-#include <string.h>
-
-#include <stdio.h>
 
 typedef struct no
 {
-    char caracter[1];
+    char caracter;
     struct no *proximo;
 } tipo_no;
 
@@ -22,7 +19,7 @@ tipo_pilha* criarPilha(){
 
     if(pilha == NULL){
         //Retorna 0 - Informando que a alocação não foi realizada com sucesso
-        return 0;
+        return NULL;
     }
 
     pilha -> topo = NULL;
@@ -32,7 +29,7 @@ tipo_pilha* criarPilha(){
 }
 
 // B) INCLUI NO TOPO DA PILHA
-int empilhar(tipo_pilha* pilha, char elemento[1]){
+int empilhar(tipo_pilha* pilha, char elemento){
     tipo_no* novo;
     
     novo = (tipo_no*) malloc(sizeof(tipo_no));
@@ -41,8 +38,8 @@ int empilhar(tipo_pilha* pilha, char elemento[1]){
         //Retorna 0 - Informando que a alocação não foi realizada com sucesso
         return 0;
     }
-    
-    strcpy(novo->caracter, elemento);
+
+    novo->caracter = elemento;
     novo -> proximo = pilha -> topo;
     pilha -> topo = novo;
 
@@ -51,16 +48,16 @@ int empilhar(tipo_pilha* pilha, char elemento[1]){
 
 // C) EXCLUSÃO NO TOPO DA PILHA
 char desempilhar(tipo_pilha* pilha){
-    char caracterExcluido[1];
+    char caracterExcluido;
     tipo_no* auxiliar;
 
     auxiliar = pilha -> topo;
     pilha -> topo = auxiliar -> proximo;
-    strcpy(caracterExcluido, auxiliar->caracter);
+    caracterExcluido = auxiliar->caracter;
     pilha -> quantidadeElementos--;
     free(auxiliar);
 
-    return *caracterExcluido;
+    return caracterExcluido;
 }
 
 // D) VERIFICAR SE A PILHA ESTÁ VAZIA
