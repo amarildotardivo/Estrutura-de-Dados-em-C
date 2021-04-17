@@ -99,6 +99,7 @@ int apagaFila(tipo_fila* fila){
         while (fila->inicio != NULL){
             auxiliar = fila->inicio;
             fila->inicio = auxiliar -> proximo;
+            fila->quantidadeElementos--;
             free(auxiliar);
         }
         //Retorna 1 - Quando a fila foi apagada com sucesso

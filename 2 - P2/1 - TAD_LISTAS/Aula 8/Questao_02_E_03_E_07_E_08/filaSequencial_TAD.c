@@ -1,8 +1,8 @@
 #include <stdlib.h>
-#define tamanho 21
+#define tamanho_vetor 3
 
 typedef struct filaSequencial{
-    int dados[tamanho];
+    int dados[tamanho_vetor];
     int inicio;
     int fim;
     int quantidadeElementos;
@@ -27,24 +27,45 @@ tipo_fila* criarFila(){
 // B) - Incluir elemento no final da fila
 int emfileirar(tipo_fila* fila, int elemento){
     
-    if(fila != NULL){
+    if(fila->fim != tamanho_vetor){
         
-    }else
+        if(fila->fim + 1 != fila->inicio){
+
+            fila->dados[fila->fim] = elemento;
+            
+            fila->quantidadeElementos++;
+            fila->fim++;
+
+            return elemento;
+        }
+
+    }else{
+        //Retorna 0 - Informando que a alocação não foi realizada com sucesso
+        return 0;
+    }
+
 }
 
 // C) - Exluir elemento no inicio da fila
 int desemfileirar(tipo_fila* fila){
-    tipo_no *auxiliar;
     int dadoExcluido;
 
-    if(fila->inicio != NULL){
-        auxiliar = fila->inicio;
-        fila->inicio = auxiliar -> proximo;
-        fila->quantidadeElementos--;
-        dadoExcluido = auxiliar->dado;
+    if(fila->quantidadeElementos != 0){
         
-        free(auxiliar);
+        dadoExcluido = fila->dados[fila->inicio];
+        //fila->dados[inicial] = NULL;
+        fila->inicio++;
 
+        if(fila->inicio == tamanho_vetor){
+            fila->inicio = 0;
+        }
+
+        fila->quantidadeElementos--;
+
+        if(fila->fim == tamanho_vetor){
+            fila->fim = 0;
+        }
+        
         return dadoExcluido;
 
     }else{
@@ -71,14 +92,13 @@ int tamanhoFila(tipo_fila *fila){
 
 // 6) - Limpar a lista
 int apagaFila(tipo_fila* fila){
-    tipo_no *auxiliar;
+    
+    if(fila != NULL){
 
-    if(fila->inicio != NULL){
-        while (fila->inicio != NULL){
-            auxiliar = fila->inicio;
-            fila->inicio = auxiliar -> proximo;
-            free(auxiliar);
-        }
+        fila->inicio = 0;
+        fila->fim = 0;
+        fila->quantidadeElementos = 0;
+
         //Retorna 1 - Quando a fila foi apagada com sucesso
         return 1;
 
