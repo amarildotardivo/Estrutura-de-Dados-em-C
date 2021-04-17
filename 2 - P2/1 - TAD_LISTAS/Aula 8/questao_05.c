@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "pilhaEncadeadaString.h"
+#include "TAD\pilha\pilhaEncadeadaString.h"
 
 void inverterFrase(tipo_pilha *pilha, char frase[21]){
     int resultado;

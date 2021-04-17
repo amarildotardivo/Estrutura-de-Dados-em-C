@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "pilhaEncadeada.h"
+#include "TAD\pilha\pilhaEncadeada.h"
 
 int verificarPilhasIguais(tipo_pilha *pilha1, tipo_pilha *pilha2){
     int dado1, dado2;
