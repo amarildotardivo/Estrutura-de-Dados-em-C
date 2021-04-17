@@ -6,6 +6,7 @@ typedef struct filaEncadeada tipo_fila;
 tipo_fila* criarFila();
 
 // B) - Incluir elemento no final da fila
+//Retorna 0 - Informando que a alocação não foi realizada com sucesso
 int emfileirar(tipo_fila* fila, int elemento);
 
 // C) - Exluir elemento no inicio da fila

@@ -39,6 +39,16 @@ int emfileirar(tipo_fila* fila, int elemento){
             return elemento;
         }
 
+    }else if(fila->inicio > 1){
+        fila->fim = 0;
+
+        fila->dados[fila->fim] = elemento;
+            
+        fila->quantidadeElementos++;
+        fila->fim++;
+
+        return elemento;
+        
     }else{
         //Retorna 0 - Informando que a alocação não foi realizada com sucesso
         return 0;
