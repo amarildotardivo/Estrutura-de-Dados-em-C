@@ -21,6 +21,7 @@ char desempilhar(tipo_pilha* pilha);
 int verificaPilhaVazia(tipo_pilha* pilha);
 
 // E) OBTEM O TAMANHO DA PILHA
+//Retorna a Quantidade de elementos
 //Retorna -1 - Quando Não existir Pilha Criada
 int tamanhoPilha(tipo_pilha* pilha);
 
