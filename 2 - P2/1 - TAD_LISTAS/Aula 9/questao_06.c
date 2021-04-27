@@ -8,25 +8,29 @@
 void insereOrdenado(int vetor[], int valor, int posicao){
     int aux = 0, i = 0;
     
+    //Insere o primeiro elemento no vetor
     if(posicao == 0){
         vetor[posicao] = valor;
 
     }else{
-
+       //verifica a posição onde o valor vai ser inserido no vetor 
        while( ( i < posicao) && (vetor[i] < valor)){
            aux = i;
            i++;
        }
 
+       //Insere quando o valor é menor que a primeira posição 
        if( aux == 0){
            for(int j = posicao; j > i; j--){
                vetor[j] = vetor[j - 1];
            }
            vetor[i] = valor;
        
+       //Insere no vetor quanto está na última posição
        }else if(i == posicao){
            vetor[i] = valor;
 
+       //Insere no vetor quando está no meio 
        }else{
            for(int j = posicao; j > i; j--){
                vetor[j] = vetor[j - 1];
