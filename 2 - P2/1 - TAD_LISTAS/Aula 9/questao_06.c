@@ -58,14 +58,16 @@ void aleatoriosDistintos(int vetor[]){
     //Semente aleatória criada;
     srand(time(NULL));
 
-    //Preenchendo o vetor com 1000 numeros aleatórios
+    //Preenchendo o vetor
     for(int i = 0; i < tamanho_vetor; i++){
         valor = rand() % range;
-
+        
+        //Verificando se o valor atual é igual a algum valor do vetor
         while( verificaIguais(vetor, valor, i) != 1 ){
             valor = rand() % range;
         }
-
+        
+        //Insere ordenadamente os valores no vetor
         insereOrdenado(vetor, valor, i);
     }
 }
