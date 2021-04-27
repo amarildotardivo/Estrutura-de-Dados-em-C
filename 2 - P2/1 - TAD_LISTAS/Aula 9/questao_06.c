@@ -1,32 +1,44 @@
 #include <stdio.h>
-#define tamanho_vetor 5
-#define range 5
+#include<time.h>
+#include <stdlib.h>
+
+#define tamanho_vetor 1000
+#define range 10000
 
 void insereOrdenado(int vetor[], int valor, int posicao){
-    int aux;
+    int aux = 0, i = 0;
     
     if(posicao == 0){
         vetor[posicao] = valor;
 
     }else{
-        for(int i = 1; i < posicao; i++){
-            
-            if(vetor[i] > valor){
-                
-                for(int j = posicao; j > i; j--){
-                    vetor[j] = vetor[j-1];
-                }
-                
-                vetor[i] = valor;
-            }
 
-        }
+       while( ( i < posicao) && (vetor[i] < valor)){
+           aux = i;
+           i++;
+       }
+
+       if( aux == 0){
+           for(int j = posicao; j > i; j--){
+               vetor[j] = vetor[j - 1];
+           }
+           vetor[i] = valor;
+       
+       }else if(i == posicao){
+           vetor[i] = valor;
+
+       }else{
+           for(int j = posicao; j > i; j--){
+               vetor[j] = vetor[j - 1];
+           }
+           vetor[i] = valor;
+       }
     }
 }
 
-int verificaIguais(int vetor[], int valor){
+int verificaIguais(int vetor[], int valor, int posicao){
 
-    for(int i = 0; i < tamanho_vetor; i++){
+    for(int i = 0; i < posicao; i++){
         if(vetor[i] == valor){
             //Retorna 0 - Quando os valores se repetem
             return 0;
@@ -46,30 +58,32 @@ void aleatoriosDistintos(int vetor[]){
     for(int i = 0; i < tamanho_vetor; i++){
         valor = rand() % range;
 
-        while( verificaIguais(vetor, valor) != 1 ){
+        while( verificaIguais(vetor, valor, i) != 1 ){
             valor = rand() % range;
         }
-        printf(" %d ", valor);
+
         insereOrdenado(vetor, valor, i);
-        //vetor[i] = valor;
     }
 }
 
-int buscaBinaria(int vetor[], int esq, int dir, int valor){
+int buscaBinaria(int vetor[], int esq, int dir, int valor, int comparacoes){
     int i;
     
     if(dir >= esq){
-        i = esq + (dir - esq) / 2;
+        i = (esq + dir) / 2;
+        
+        comparacoes++;
+        printf("\n  Comparacao: %d", comparacoes);
 
         if(vetor[i] == valor){
             return i;
         }
 
         if(vetor[i] > valor){
-            return buscaBinaria(vetor, esq, i - 1, valor);
+            return buscaBinaria(vetor, esq, i - 1, valor, comparacoes);
 
         }else{
-            return buscaBinaria(vetor, i + 1, dir, valor);
+            return buscaBinaria(vetor, i + 1, dir, valor, comparacoes);
         }
     }
 
@@ -78,7 +92,7 @@ int buscaBinaria(int vetor[], int esq, int dir, int valor){
 }
 
 int main(){
-    int vetor[tamanho_vetor], valor, esq = 0, dir = tamanho_vetor, *comparacoes = 0, resultado;
+    int vetor[tamanho_vetor], valor, esq = 0, dir = tamanho_vetor, comparacoes = 0, resultado;
 
     aleatoriosDistintos(vetor);
 
@@ -92,9 +106,9 @@ int main(){
     printf("\n  Entre com o valor para busca: ");
     scanf("%d", &valor);
 
-    resultado = buscaBinaria(vetor, esq, dir, valor);
+    resultado = buscaBinaria(vetor, esq, dir, valor, comparacoes);
 
-    printf("\n  Posicao encontrada foi: %d", resultado);
+    printf("\n  Posicao encontrada foi: %d\n\n", resultado);
 
     return 0;
 }
