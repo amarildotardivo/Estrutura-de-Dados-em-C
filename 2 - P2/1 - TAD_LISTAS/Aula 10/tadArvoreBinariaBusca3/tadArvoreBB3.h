@@ -11,12 +11,14 @@ int excluir_elemento(tipo_no_arvore, int);
 // QUESTAO 1 ------------------------------------------------
 int retornarMaior(tipo_no_arvore);
 // QUESTAO 2 ------------------------------------------------
-int somaValores(tipo_no_arvore , int );
+int somaValores(tipo_no_arvore );
 // QUESTAO 3 ------------------------------------------------
-int totalNos(tipo_no_arvore , int );
+int totalNos(tipo_no_arvore );
 // QUESTAO 4 ---------------------------------------------------
 int mediaNos(tipo_no_arvore );
 // QUESTAO 5 ---------------------------------------------------
-int numeroFolhas(tipo_no_arvore , int );
+int numeroFolhas(tipo_no_arvore );
 // QUESTAO 6 ---------------------------------------------------
-int quantidadeNulls(tipo_no_arvore , int );
+int quantidadeNulls(tipo_no_arvore );
+// QUESTAO 7 ---------------------------------------------------
+int alturaArvore(tipo_no_arvore );

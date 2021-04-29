@@ -3,13 +3,14 @@
 int main()
 {
     tipo_no_arvore arvore;
-    int chave, soma = 0, total_nos = 0, soma_folhas = 0, soma_nulls = 0;
+    int chave, soma = 0, total_nos = 0, soma_folhas = 0, soma_nulls = 0, altura = 0;
 
     arvore = inicializar_arvore(arvore);
 
     incluir_no_arvore(arvore, 100);
     incluir_no_arvore(arvore, 50);
     incluir_no_arvore(arvore, 150);
+    incluir_no_arvore(arvore, 125);
     incluir_no_arvore(arvore, 25);
     incluir_no_arvore(arvore, 75);
     incluir_no_arvore(arvore, 45);
@@ -32,19 +33,22 @@ int main()
     printf("\n\n  Encontrar Maior Elemento: %d", retornarMaior(arvore));
 
     // QUESTAO 2 ------------------------------------------------
-    printf("\n\n  Soma de Todos os Elementos: %d", somaValores(arvore, soma));
+    printf("\n\n  Soma de Todos os Elementos: %d", somaValores(arvore));
 
     // QUESTAO 3 ------------------------------------------------
-    printf("\n\n  Total de Nos: %d", totalNos(arvore, total_nos));
+    printf("\n\n  Total de Nos: %d", totalNos(arvore));
 
     // QUESTAO 4 ---------------------------------------------------
     printf("\n\n  Media dos Nos: %d", mediaNos(arvore));
 
     // QUESTAO 5 ---------------------------------------------------
-    printf("\n\n  Numero de Folhas: %d", numeroFolhas(arvore , soma_folhas));
+    printf("\n\n  Numero de Folhas: %d", numeroFolhas(arvore));
 
     // QUESTAO 6 ---------------------------------------------------
-    printf("\n\n  Numero de NULLS: %d", quantidadeNulls(arvore , soma_nulls));
+    printf("\n\n  Numero de NULLS: %d", quantidadeNulls(arvore));
+
+    // QUESTAO 7 ---------------------------------------------------
+    printf("\n\n  Altura da Arvore: %d", alturaArvore(arvore)); 
 
     //---------------------------------------------------------------------------------------
 

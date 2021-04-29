@@ -195,26 +195,27 @@ int retornarMaior(tipo_no_arvore sub_raiz)
 }
 
 // QUESTAO 2 ------------------------------------------------
-int somaValores(tipo_no_arvore sub_raiz, int soma)
+int somaValores(tipo_no_arvore sub_raiz)
 {
-    soma = 0;
+    int soma = 0;
     if (*sub_raiz != NULL)
     {
-        soma += somaValores(&((*sub_raiz)->ptrEsquerda), soma);
-        soma += somaValores(&((*sub_raiz)->ptrDireita), soma);
+        soma += somaValores(&((*sub_raiz)->ptrEsquerda));
+        soma += somaValores(&((*sub_raiz)->ptrDireita));
         return soma += (*sub_raiz)->chave;
     }
     
 }
 
 // QUESTAO 3 ------------------------------------------------
-int totalNos(tipo_no_arvore sub_raiz, int soma)
+int totalNos(tipo_no_arvore sub_raiz)
 {
+    int soma = 0;
 
     if (*sub_raiz != NULL)
     {
-        soma = totalNos(&((*sub_raiz)->ptrEsquerda), soma);
-        soma = totalNos(&((*sub_raiz)->ptrDireita), soma);
+        soma += totalNos(&((*sub_raiz)->ptrEsquerda));
+        soma += totalNos(&((*sub_raiz)->ptrDireita));
         soma ++;
 
     }
@@ -225,17 +226,18 @@ int totalNos(tipo_no_arvore sub_raiz, int soma)
 // QUESTAO 4 ---------------------------------------------------
 int mediaNos(tipo_no_arvore sub_raiz)
 {
-    float media, soma = 0, soma_nos = 0;
+    float media;
 
-    media = somaValores(sub_raiz, soma) / totalNos(sub_raiz, soma_nos);
+    media = somaValores(sub_raiz) / totalNos(sub_raiz);
 
     return media;
 }
 
 
-// QUESTAO 5 ---------------------------------------------------
-int numeroFolhas(tipo_no_arvore sub_raiz, int soma_folhas)
+// QUESTAO 5 ------------- ERRADO --------------------------------------
+int numeroFolhas(tipo_no_arvore sub_raiz )
 {
+    int soma_folhas = 0;
     
     if(*sub_raiz != NULL){
 
@@ -245,11 +247,11 @@ int numeroFolhas(tipo_no_arvore sub_raiz, int soma_folhas)
         }else{
 
             if((*sub_raiz)->ptrDireita == NULL){
-                soma_folhas = totalNos(&((*sub_raiz)->ptrEsquerda), soma_folhas);
+                soma_folhas += numeroFolhas(&((*sub_raiz)->ptrEsquerda));
 
             }else{
 
-                soma_folhas = totalNos(&((*sub_raiz)->ptrDireita), soma_folhas);
+                soma_folhas += numeroFolhas(&((*sub_raiz)->ptrDireita));
             }
         }   
     }
@@ -258,15 +260,40 @@ int numeroFolhas(tipo_no_arvore sub_raiz, int soma_folhas)
 }
 
 // QUESTAO 6 ---------------------------------------------------
-int quantidadeNulls(tipo_no_arvore sub_raiz, int soma_nulls)
-{
-    soma_nulls = 0;
+int quantidadeNulls(tipo_no_arvore sub_raiz)
+{   
+    int soma_nulls = 0;
+
     if(*sub_raiz != NULL){
-        soma_nulls += totalNos(&((*sub_raiz)->ptrEsquerda), soma_nulls);
-        soma_nulls += totalNos(&((*sub_raiz)->ptrDireita), soma_nulls);    
+        soma_nulls += quantidadeNulls(&((*sub_raiz)->ptrEsquerda));
+        soma_nulls += quantidadeNulls(&((*sub_raiz)->ptrDireita));    
     }else{
         return 1;
     }
 
     return soma_nulls;
+    
+}
+
+// QUESTAO 7 ---------------------------------------------------
+int alturaArvore(tipo_no_arvore sub_raiz)
+{   
+    int altura = 0;
+
+    if((*sub_raiz)->ptrEsquerda != NULL){
+
+        altura += alturaArvore(&((*sub_raiz)->ptrEsquerda));
+
+    }else if((*sub_raiz)->ptrDireita != NULL){
+        
+        altura = alturaArvore(&((*sub_raiz)->ptrDireita));  
+
+    }
+    
+    if( (*sub_raiz)->ptrEsquerda == NULL && (*sub_raiz)->ptrDireita == NULL){
+        return altura;
+    }
+
+    return altura;
+    
 }
