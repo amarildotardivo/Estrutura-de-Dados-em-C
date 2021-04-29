@@ -234,26 +234,20 @@ int mediaNos(tipo_no_arvore sub_raiz)
 }
 
 
-// QUESTAO 5 ------------- ERRADO --------------------------------------
+// QUESTAO 5 ----------------------------------------------------
 int numeroFolhas(tipo_no_arvore sub_raiz )
 {
     int soma_folhas = 0;
     
+    
     if(*sub_raiz != NULL){
+
+        soma_folhas += numeroFolhas(&((*sub_raiz)->ptrEsquerda));
+        soma_folhas += numeroFolhas(&((*sub_raiz)->ptrDireita));
 
         if((*sub_raiz)->ptrEsquerda == NULL && (*sub_raiz)->ptrDireita == NULL){
             soma_folhas++;
-
-        }else{
-
-            if((*sub_raiz)->ptrDireita == NULL){
-                soma_folhas += numeroFolhas(&((*sub_raiz)->ptrEsquerda));
-
-            }else{
-
-                soma_folhas += numeroFolhas(&((*sub_raiz)->ptrDireita));
-            }
-        }   
+        }  
     }
 
     return soma_folhas;
