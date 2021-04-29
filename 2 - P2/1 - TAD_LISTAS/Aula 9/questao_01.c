@@ -3,7 +3,7 @@
 int fatorial(int numero){
     int resultado_fatorial;
 
-    if(numero == 0){
+    if((numero == 0) || (numero == 1)){
         return 1;
     
     }else{
