@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #define tamanho_vetor 1001
-#define range 1001
+#define range 10001
 
 void insereOrdenado(int vetor[], int valor, int posicao){
     int aux = 0, i = 0;
