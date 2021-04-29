@@ -205,6 +205,7 @@ int somaValores(tipo_no_arvore sub_raiz)
         return soma += (*sub_raiz)->chave;
     }
     
+    return soma;
 }
 
 // QUESTAO 3 ------------------------------------------------
@@ -269,23 +270,13 @@ int quantidadeNulls(tipo_no_arvore sub_raiz)
     
 }
 
-// QUESTAO 7 ---------------------------------------------------
+// QUESTAO 7 ---------------ERRADO------------------------------------
 int alturaArvore(tipo_no_arvore sub_raiz)
 {   
     int altura = 0;
 
-    if((*sub_raiz)->ptrEsquerda != NULL){
+    if(*sub_raiz != NULL){
 
-        altura += alturaArvore(&((*sub_raiz)->ptrEsquerda));
-
-    }else if((*sub_raiz)->ptrDireita != NULL){
-        
-        altura = alturaArvore(&((*sub_raiz)->ptrDireita));  
-
-    }
-    
-    if( (*sub_raiz)->ptrEsquerda == NULL && (*sub_raiz)->ptrDireita == NULL){
-        return altura;
     }
 
     return altura;
