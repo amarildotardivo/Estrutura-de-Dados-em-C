@@ -234,7 +234,6 @@ int mediaNos(tipo_no_arvore sub_raiz)
     return media;
 }
 
-
 // QUESTAO 5 ----------------------------------------------------
 int numeroFolhas(tipo_no_arvore sub_raiz )
 {
@@ -276,13 +275,13 @@ int alturaArvore(tipo_no_arvore sub_raiz)
     int alturaEsq = 0, alturaDir = 0;
 
     if(*sub_raiz != NULL){
-        if(&(*sub_raiz)->ptrEsquerda != NULL){
+        if(&((*sub_raiz)->ptrEsquerda) != NULL){
             alturaEsq++;
-            alturaEsq += alturaArvore(&(*sub_raiz)->ptrEsquerda);
+            alturaEsq += alturaArvore(&((*sub_raiz)->ptrEsquerda));
         }
-        if(&(*sub_raiz)->ptrDireita != NULL){
+        if(&((*sub_raiz)->ptrDireita) != NULL){
             alturaDir++;
-            alturaDir += alturaArvore(&(*sub_raiz)->ptrDireita);
+            alturaDir += alturaArvore(&((*sub_raiz)->ptrDireita));
         }
 
         if(alturaEsq > alturaDir){
