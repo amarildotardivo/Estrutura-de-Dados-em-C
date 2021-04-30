@@ -270,7 +270,7 @@ int quantidadeNulls(tipo_no_arvore sub_raiz)
     
 }
 
-// QUESTAO 7 ---------------ERRADO------------------------------------
+// QUESTAO 7 ---------------------------------------------------
 int alturaArvore(tipo_no_arvore sub_raiz)
 {   
     int alturaEsq = 0, alturaDir = 0;
@@ -295,4 +295,23 @@ int alturaArvore(tipo_no_arvore sub_raiz)
     }else{
         return 0;
     }
+}
+
+// QUESTAO 8 ------------------------------------------------
+int nosMultiplos3(tipo_no_arvore sub_raiz)
+{
+    int multiplos = 0;
+
+    if (*sub_raiz != NULL)
+    {
+        multiplos += nosMultiplos3(&((*sub_raiz)->ptrEsquerda));
+        multiplos += nosMultiplos3(&((*sub_raiz)->ptrDireita));
+        
+        if((*sub_raiz)->chave % 3 == 0){
+            multiplos ++;
+        }
+
+    }
+    return multiplos;
+    
 }

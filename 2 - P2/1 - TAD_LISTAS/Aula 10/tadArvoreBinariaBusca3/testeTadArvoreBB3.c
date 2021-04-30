@@ -50,6 +50,9 @@ int main()
     // QUESTAO 7 ---------------------------------------------------
     printf("\n\n  Altura da Arvore: %d", alturaArvore(arvore)); 
 
+    // QUESTAO 8 ------------------------------------------------
+    printf("\n\n  Nos Multiplos de 3: %d", nosMultiplos3(arvore));
+
     //---------------------------------------------------------------------------------------
 
     printf("\n\n  Encontrar 45: %d", encontrar_elemento(arvore, 45));

@@ -22,3 +22,5 @@ int numeroFolhas(tipo_no_arvore );
 int quantidadeNulls(tipo_no_arvore );
 // QUESTAO 7 ---------------------------------------------------
 int alturaArvore(tipo_no_arvore );
+// QUESTAO 8 ------------------------------------------------
+int nosMultiplos3(tipo_no_arvore );
