@@ -173,7 +173,7 @@ int excluir_elemento(tipo_no_arvore sub_raiz, int chave)
     }
 }
 
-// QUESTAO 1 ------------------------------------------------
+// QUESTAO 1 ---------------------------------------------------
 int retornarMaior(tipo_no_arvore sub_raiz)
 {
 
@@ -194,7 +194,7 @@ int retornarMaior(tipo_no_arvore sub_raiz)
     }
 }
 
-// QUESTAO 2 ------------------------------------------------
+// QUESTAO 2 ---------------------------------------------------
 int somaValores(tipo_no_arvore sub_raiz)
 {
     int soma = 0;
@@ -208,7 +208,7 @@ int somaValores(tipo_no_arvore sub_raiz)
     return soma;
 }
 
-// QUESTAO 3 ------------------------------------------------
+// QUESTAO 3 ---------------------------------------------------
 int totalNos(tipo_no_arvore sub_raiz)
 {
     int soma = 0;
@@ -234,7 +234,7 @@ int mediaNos(tipo_no_arvore sub_raiz)
     return media;
 }
 
-// QUESTAO 5 ----------------------------------------------------
+// QUESTAO 5 ---------------------------------------------------
 int numeroFolhas(tipo_no_arvore sub_raiz )
 {
     int soma_folhas = 0;
@@ -296,7 +296,7 @@ int alturaArvore(tipo_no_arvore sub_raiz)
     }
 }
 
-// QUESTAO 8 ------------------------------------------------
+// QUESTAO 8 ---------------------------------------------------
 int nosMultiplos3(tipo_no_arvore sub_raiz)
 {
     int multiplos = 0;
@@ -313,4 +313,37 @@ int nosMultiplos3(tipo_no_arvore sub_raiz)
     }
     return multiplos;
     
+}
+
+// QUESTAO 9 ---------------------------------------------------
+int encontrar_elemento_comparacoes(tipo_no_arvore sub_raiz, int chave)
+{   int comparacoes = 0;
+
+    if ((*sub_raiz) == NULL)
+    {
+        return 0;
+    }
+    else
+    {
+        comparacoes++;
+        if (chave == (*sub_raiz)->chave)
+        {
+            return comparacoes;
+        }
+        else
+        {
+            if (chave < (*sub_raiz)->chave)
+            {
+                comparacoes += encontrar_elemento(&((*sub_raiz)->ptrEsquerda), chave);
+            }
+            else
+            {
+                if (chave > (*sub_raiz)->chave)
+                {
+                    comparacoes += encontrar_elemento(&((*sub_raiz)->ptrDireita), chave);
+                }
+            }
+        }
+    }
+
 }

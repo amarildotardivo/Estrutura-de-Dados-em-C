@@ -53,6 +53,9 @@ int main()
     // QUESTAO 8 ------------------------------------------------
     printf("\n\n  Nos Multiplos de 3: %d", nosMultiplos3(arvore));
 
+    // QUESTAO 9 ---------------------------------------------------
+    printf("\n\n  Numero de Comparacoes para achar 45: %d", encontrar_elemento_comparacoes(arvore, 45)); 
+
     //---------------------------------------------------------------------------------------
 
     printf("\n\n  Encontrar 45: %d", encontrar_elemento(arvore, 45));
