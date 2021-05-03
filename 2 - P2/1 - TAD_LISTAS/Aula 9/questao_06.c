@@ -2,8 +2,8 @@
 #include <time.h>
 #include <stdlib.h>
 
-#define tamanho_vetor 1001
-#define range 10001
+#define tamanho_vetor 1000
+#define range 10000
 
 void insereOrdenado(int vetor[], int valor, int posicao){
     int aux = 0, i = 0;
@@ -109,12 +109,17 @@ int main(){
     }
     printf("\n\n");
     
-    printf("\n  Entre com o valor para busca: ");
-    scanf("%d", &valor);
+    //printf("\n  Entre com o valor para busca: ");
+    //scanf("%d", &valor);
 
-    resultado = buscaBinaria(vetor, esq, dir, valor, comparacoes);
+    //resultado = buscaBinaria(vetor, esq, dir, valor, comparacoes);
 
-    printf("\n  Posicao encontrada foi: %d\n\n", resultado);
+    //printf("\n  Posicao encontrada foi: %d\n\n", resultado);
+
+    printf("\n  Posicao encontrada foi: %d\n\n", buscaBinaria(vetor, esq, dir, 45, comparacoes));
+    printf("\n  Posicao encontrada foi: %d\n\n", buscaBinaria(vetor, esq, dir, 550, comparacoes));
+    printf("\n  Posicao encontrada foi: %d\n\n", buscaBinaria(vetor, esq, dir, 1056, comparacoes));
+    printf("\n  Posicao encontrada foi: %d\n\n", buscaBinaria(vetor, esq, dir, 7859, comparacoes));
 
     return 0;
 }

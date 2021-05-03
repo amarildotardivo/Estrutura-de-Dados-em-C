@@ -275,6 +275,7 @@ int alturaArvore(tipo_no_arvore sub_raiz)
     int alturaEsq = 0, alturaDir = 0;
 
     if(*sub_raiz != NULL){
+
         if(&((*sub_raiz)->ptrEsquerda) != NULL){
             alturaEsq++;
             alturaEsq += alturaArvore(&((*sub_raiz)->ptrEsquerda));
@@ -316,6 +317,7 @@ int nosMultiplos3(tipo_no_arvore sub_raiz)
 }
 
 // QUESTAO 9 ---------------------------------------------------
+// RESPOSTA QUESTAO 11: 
 int encontrar_elemento_comparacoes(tipo_no_arvore sub_raiz, int chave)
 {   int comparacoes = 0;
 
@@ -334,13 +336,13 @@ int encontrar_elemento_comparacoes(tipo_no_arvore sub_raiz, int chave)
         {
             if (chave < (*sub_raiz)->chave)
             {
-                comparacoes += encontrar_elemento(&((*sub_raiz)->ptrEsquerda), chave);
+                return comparacoes += encontrar_elemento_comparacoes(&((*sub_raiz)->ptrEsquerda), chave);
             }
             else
             {
                 if (chave > (*sub_raiz)->chave)
                 {
-                    comparacoes += encontrar_elemento(&((*sub_raiz)->ptrDireita), chave);
+                    return comparacoes += encontrar_elemento_comparacoes(&((*sub_raiz)->ptrDireita), chave);
                 }
             }
         }

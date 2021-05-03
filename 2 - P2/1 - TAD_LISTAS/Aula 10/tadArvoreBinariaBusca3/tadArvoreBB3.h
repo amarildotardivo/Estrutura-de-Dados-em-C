@@ -25,4 +25,4 @@ int alturaArvore(tipo_no_arvore );
 // QUESTAO 8 ------------------------------------------------
 int nosMultiplos3(tipo_no_arvore );
 // QUESTAO 9 ---------------------------------------------------
-int encontrar_elemento_comparacoes(tipo_no_arvore , int );
+int encontrar_elemento_comparacoes(tipo_no_arvore , int);

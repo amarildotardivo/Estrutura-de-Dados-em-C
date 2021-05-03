@@ -1,9 +1,10 @@
-#include<stdio.h>
-#include"tadArvoreBB3.h"
+#include <stdio.h>
+#include "tadArvoreBB3.h"
+
 int main()
 {
-    tipo_no_arvore arvore;
-    int chave, soma = 0, total_nos = 0, soma_folhas = 0, soma_nulls = 0, altura = 0;
+    tipo_no_arvore arvore, arvore2;
+    int chave;
 
     arvore = inicializar_arvore(arvore);
 
@@ -55,7 +56,9 @@ int main()
 
     // QUESTAO 9 ---------------------------------------------------
     printf("\n\n  Numero de Comparacoes para achar 45: %d", encontrar_elemento_comparacoes(arvore, 45)); 
-
+    
+    // QUESTÕES 10 E 11 ESTÃO NA MAIN DA QUESTÃO 10
+    
     //---------------------------------------------------------------------------------------
 
     printf("\n\n  Encontrar 45: %d", encontrar_elemento(arvore, 45));
@@ -67,5 +70,6 @@ int main()
     printf("    ");
     percurso_em_ordem(arvore);
     printf("\n\n");
+
     return 0;
 }
