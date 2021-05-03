@@ -109,17 +109,19 @@ int main(){
     }
     printf("\n\n");
     
-    //printf("\n  Entre com o valor para busca: ");
-    //scanf("%d", &valor);
+    printf("\n  Entre com o valor para busca: ");
+    scanf("%d", &valor);
 
-    //resultado = buscaBinaria(vetor, esq, dir, valor, comparacoes);
+    resultado = buscaBinaria(vetor, esq, dir, valor, comparacoes);
 
-    //printf("\n  Posicao encontrada foi: %d\n\n", resultado);
+    printf("\n  Posicao encontrada foi: %d\n\n", resultado);
 
+    /*
     printf("\n  Posicao encontrada foi: %d\n\n", buscaBinaria(vetor, esq, dir, 45, comparacoes));
     printf("\n  Posicao encontrada foi: %d\n\n", buscaBinaria(vetor, esq, dir, 550, comparacoes));
     printf("\n  Posicao encontrada foi: %d\n\n", buscaBinaria(vetor, esq, dir, 1056, comparacoes));
     printf("\n  Posicao encontrada foi: %d\n\n", buscaBinaria(vetor, esq, dir, 7859, comparacoes));
+    */
 
     return 0;
 }
