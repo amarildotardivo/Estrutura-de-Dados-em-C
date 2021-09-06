@@ -1,5 +1,7 @@
 # Estrutura-de-Dados-em-C
 
+Profº: Fábio Duncan
+
 **PS: Gostaria de deixar aqui meu eterno agradecimento a [Mateus Freitas](https://github.com/MateusFrei) pelo suporte e colaboração durante toda a disciplina.**
 
 ### Objetivos da Disciplina
